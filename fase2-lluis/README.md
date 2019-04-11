@@ -7,7 +7,7 @@ https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-t
 executar a un terminal (bash) la següent comanda:
 
 ```shell
-  python3.7 import_waterbase_csv_files.py
+  python3.7 import_csv_files.py
 ```
 Resultat:
 ```
@@ -22,7 +22,7 @@ Aquesta instrucció crea un arxiu base de dades ```waterbase.sqlite```, que es p
 
 Nota: els fitxers descarregats de la web europea tenen codificació ASCII o
 ISO-8859 (entre d'altres). És molt important que els arxius csv estiguin en
-format UTF-8, sinó la comanda ```import_waterbase_csv_files``` donarà error.
+format UTF-8, sinó la comanda ```import_csv_files``` donarà error.
 Per convertir els fitxers a utf-8 es pot fer servir la comanda ```iconv(1)``` o
 copiar i enganxar els arxius a un nou fitxer de text fent servir un editor de
 text.
