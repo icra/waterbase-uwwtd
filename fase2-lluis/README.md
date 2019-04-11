@@ -1,11 +1,19 @@
 ## Passos a seguir 
 
-Objectiu: poder combinar les taules i fer consultes SQL avançades
+Objectiu: poder combinar les taules i fer consultes SQL avançades.
 
 Per processar els csv extrets de<br>https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5 :
 
 ```shell
 python3.7 import_waterbase_csv_files.py
+```
+Resultat:
+```
+Importing T_Agglomerations.csv... Done (27848 rows)
+Importing T_DischargePoints.csv... Done (30031 rows)
+Importing T_UWWTPAgglos.csv... Done (28372 rows)
+Importing T_UWWTPS_emission_load.csv... Done (30437 rows)
+Importing T_UWWTPs.csv... Done (30437 rows)
 ```
 
 Els fitxers descarregats de la web europea tenen codificacions no estàndard
@@ -29,3 +37,5 @@ executar consulta amb sqlite
 ```shell
 bash query_sqlite.sh
 ```
+
+
