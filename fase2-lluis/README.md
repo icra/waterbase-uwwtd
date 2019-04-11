@@ -1,4 +1,4 @@
-status: en desenvolupament (seguint passos de 'operacions.docx.md')
+status: en desenvolupament (seguint passos de l'arxiu 'operacions.docx.md')
 ## Passos a seguir
 
 Objectiu: combinar 5 taules (5 arxius CSV descarregats de
