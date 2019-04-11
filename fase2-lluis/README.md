@@ -67,3 +67,5 @@ La comanda SQL per combinar les taules està aquí dins:
 ```shell
   bash query_sqlite.sh
 ```
+
+Per cridar la base de dades ```waterbase_UWWTD_vx.sqlite``` des de qGIS, o R, o altres programes, consultar el manual corresponent de connexió amb ```sqlite```
