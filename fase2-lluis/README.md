@@ -1,6 +1,6 @@
 ## Passos a seguir
 
-Objectiu: poder combinar les taules i fer consultes SQL avançades des de diferents programes com ara GIS o R.
+Objectiu: combinar les taules des de fitxers CSV i fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
 Per generar un arxiu de base de dades SQL, processant els csv extrets de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5

@@ -276,7 +276,7 @@ for csv_filename, sql_tablename in csv_filenames.items():
 
     #show inserted rows
     c.execute("SELECT COUNT(*) FROM "+sql_tablename)
-    print("Done (%f rows)" % (c.fetchone()[0]) )
+    print("Done (%d rows)" % (c.fetchone()[0]) )
 
     #save changes
     db.commit()
