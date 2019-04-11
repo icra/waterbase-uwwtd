@@ -33,6 +33,3 @@ errors (warnings poden donar).
 
 Per pujar les dades al servidor, el .csv es va llegint per fila i s'obtenen
 tots els valors com strings.
-
-ATENCIÓ: ELS .CSV ARREGLATS NO SÓN CORRECTES, SIMPLEMENT S'HAN ELIMINAT LÍNIES
-A SAC.

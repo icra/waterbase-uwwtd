@@ -9,14 +9,14 @@ Taula errors: 1
 3) Mostrar taula inferior de notificació d'errors i warnings de les operacions i pujada de fitxers. Permetent
    a l'usuari canviar l'excel i tornar-lo a pujar (les dades es desen en una taula auxiliar i si hi ha errors
    aquesta taula es buida).
-4) Quan la pujada no notifiqui errors, cal muntar la taula resultat amb les taules auxiliars. 
-   Les taules auxiliars han de tenir el mateix número de files per poder fer les operacions, caldrà emplenar 
-   amb camps buits. 
+4) Quan la pujada no notifiqui errors, cal muntar la taula resultat amb les taules auxiliars.
+   Les taules auxiliars han de tenir el mateix número de files per poder fer les operacions, caldrà emplenar
+   amb camps buits.
 
---------------FET FINS AQUI-------------- 
+--------------FET FINS AQUI--------------
 --------TEMPS EXECUCIÓ: 5min30seg--------
 
-5) Un cop s'obté la taula resultat sense errors, es munten les taules finals amb les dades de les taules 
+5) Un cop s'obté la taula resultat sense errors, es munten les taules finals amb les dades de les taules
    auxiliars per tenir un registre.
-6) Cal fer una taula extra amb els errors (operacions.docx al final). El camp error ha de contenir el valor 
+6) Cal fer una taula extra amb els errors (operacions.docx al final). El camp error ha de contenir el valor
    que s'obté de (Comprovació - error).
