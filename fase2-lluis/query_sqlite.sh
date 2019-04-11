@@ -5,7 +5,7 @@
 # -html  Query results will be output as simple HTML tables.
 # -csv   Set output mode to CSV (comma separated values).
 # -[no]header Turn headers on or off.
-sqlite="sqlite3 -header -html waterbase_UWWTD_v6.sqlite"
+sqlite="sqlite3 -line waterbase_UWWTD_v6.sqlite"
 
 tables=(
   'T_Agglomerations' \
@@ -17,5 +17,6 @@ tables=(
 
 for table in ${tables[@]};do
   echo $table
+  echo "----------"
   $sqlite "SELECT * FROM $table LIMIT 1"
 done

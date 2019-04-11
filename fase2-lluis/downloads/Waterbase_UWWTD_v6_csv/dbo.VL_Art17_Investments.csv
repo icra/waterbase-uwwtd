@@ -1,0 +1,171 @@
+Art17_InvestmentJobsID,ReportNetEnvelopeFileId,flarepCode,soecCapacity,soecCode,soecEndYear,soecEUFunds,soecInvCol,soecInvIAS,soecInvTp,soecJobs,soecLenghtCoCs,soecLenghtSaCs,soecLenghtStCs,soecNumbIAS,soecOpCosts,soecPeriod,soecPop,soecStartYear,soecInvComments
+266,23172,613,1036155,LUUWWINV2014,20141231,,73,,20,,,,,,,P,549680,20140101,"price VAT not included, population at the 01.01.2014"
+267,23172,613,1035655,LUUWWINV2015,20151231,,62,,15,,,,,,,CU,562958,20150101,"price VAT not included, population at the 01.01.2015"
+268,23172,613,963405,LUUWWINV2016,20161231,,90,,40,,,,,,,EXP,576249,20160101,"price VAT not included, population at the 01.01.2016"
+269,23172,613,1017905,LUUWWINV2017,20171231,,95,,45,,,,,,,EXP,,20170101,price VAT not included
+270,23172,613,1065905,LUUWWINV2018,20181231,,95,,45,,,,,,,EXP,,20180101,price VAT not included
+271,23209,SK5,0,SKUWWINV2002_2012,20121231,,737,,0,,,,,,,P,,20020101,"amount includes investments for collecting system and WWTP, VAT is included in case the recipient of financial grant is municipality "
+272,23209,SK5,7299471,SKUWWINV2013_2015,20151221,,565,,0,,,,,,,CU,,20130101,"amount includes investments for collecting system and WWTP, VAT is included in case the recipient of financial grant is municipality "
+288,26632,259,15382786,UWWINV2015,20151231,352,185,0,115,96381,45958,,,,16516,P,10525000,20150101,"celková délka kanalizací v ÈR je 45 958 km, poèet oddílných splakových kanalizací je 2731 ks, jednotných kanalizací 5300 ks, oddílných srákových 387 ks, dle údajù VÚME nelze pøesnì rozdìlit kolik je které, jeliko vlastníci vykazují celkovou délku majetku a v rámci jednoho majetku mùe být kanalizace jednotná i oddílná, soecLenghtStCs, soecNumbIAS - neevidujeme, nejedná se o kanalizaci pro veøejnou potøebu"
+289,26632,259,15400686,UWWINV2016,20161231,,185,0,116,,,,,,,CU,,20160101,
+290,26632,259,15405700,UWWINV2017,20171231,,186,0,116,,,,,,,EXP,,20170101,
+291,26632,259,15505700,UWWINV2018,20181231,,187,0,116,,,,,,,EXP,,20180101,
+292,26632,259,15506200,UWWINV2019,20191231,,187,0,117,,,,,,,EXP,,20190101,
+293,26632,259,15507000,UWWINV2020,20201231,,188,0,117,,,,,,,EXP,,20200101,
+309,26741,MT,628000,MT,20201231,10,12,,10,220,0,1500,,0,64,EXP,429344,20160101,Both investment costs indicated are million euro amounts that are inclusive of VAT. The investements relate to general upgrading of the wastewater collection network (soecInvCol) and re-investment costs on the treatment plants (soecInvTp)
+273,23209,SK5,8421375,SKUWWINV2016_2021,20211231,,830,,381,,,,,,,EXP,,20160101,VAT is included in case the recipient of financial grant is municipality 
+327,27000,UWWTD_Art17_2016,3580000,LTUWWINV2016_2018,20181231,112,84,0,29,38969,-999,11514,3200,-999,61,CU,2921262,20160101,"Investments still preliminary. No data about number of IAS in all country. Combined sewer systems are in small territories of downtowns of Vilnius, Kaunas and Klaipeda."
+296,23222,AT_UWWTD_2015,21874420,ATUWWINV2015,20151231,,272,,23,,,,,,,CU,,20150101,"Die Daten für das Jahr 2015 stammen aus der Datenbank der Kommunalkredit Public Consulting. Die Daten für die Jahre 2016 bis 2019 stammen aus der Investitionskostenerhebung 2012, die die Kommunalkredit Public Consulting im Auftrag des BMLFUW bei den Gemeinden und Verbänden durchgeführt hat.
+Die Rücklaufquote der Investitionskostenerhebung 2012 lag im Abwasserbereich (bezogen auf die Einwohner) bei ca. 91 %."
+297,23222,AT_UWWTD_2015_1,21974420,ATUWWINV2016,20161231,,305,,58,,,,,,,EXP,,20160101,"Die Daten für das Jahr 2015 stammen aus der Datenbank der Kommunalkredit Public Consulting. Die Daten für die Jahre 2016 bis 2019 stammen aus der Investitionskostenerhebung 2012, die die Kommunalkredit Public Consulting im Auftrag des BMLFUW bei den Gemeinden und Verbänden durchgeführt hat.
+Die Rücklaufquote der Investitionskostenerhebung 2012 lag im Abwasserbereich (bezogen auf die Einwohner) bei ca. 91 %."
+298,23222,AT_UWWTD_2015_1,22074420,ATUWWINV2017,20171231,,305,,61,,,,,,,EXP,,20170101,"Die Daten für das Jahr 2015 stammen aus der Datenbank der Kommunalkredit Public Consulting. Die Daten für die Jahre 2016 bis 2019 stammen aus der Investitionskostenerhebung 2012, die die Kommunalkredit Public Consulting im Auftrag des BMLFUW bei den Gemeinden und Verbänden durchgeführt hat.
+Die Rücklaufquote der Investitionskostenerhebung 2012 lag im Abwasserbereich (bezogen auf die Einwohner) bei ca. 91 %."
+299,23222,AT_UWWTD_2015_1,22174420,ATUWWINV2018,20181231,,279,,57,,,,,,,EXP,,20180101,"Die Daten für das Jahr 2015 stammen aus der Datenbank der Kommunalkredit Public Consulting. Die Daten für die Jahre 2016 bis 2019 stammen aus der Investitionskostenerhebung 2012, die die Kommunalkredit Public Consulting im Auftrag des BMLFUW bei den Gemeinden und Verbänden durchgeführt hat.
+Die Rücklaufquote der Investitionskostenerhebung 2012 lag im Abwasserbereich (bezogen auf die Einwohner) bei ca. 91 %."
+300,23222,AT_UWWTD_2015_1,22274420,ATUWWINV2019,20191231,,265,,36,,,,,,,EXP,,20190101,"Die Daten für das Jahr 2015 stammen aus der Datenbank der Kommunalkredit Public Consulting. Die Daten für die Jahre 2016 bis 2019 stammen aus der Investitionskostenerhebung 2012, die die Kommunalkredit Public Consulting im Auftrag des BMLFUW bei den Gemeinden und Verbänden durchgeführt hat.
+Die Rücklaufquote der Investitionskostenerhebung 2012 lag im Abwasserbereich (bezogen auf die Einwohner) bei ca. 91 %."
+317,23242,DE_UWWT_2014_1,151831032,DEUWWINV2013,20131231,,2090,,788,,,,,,,CU,,20130101,"Daten für den Bezugszeitraum 2014 liegen derzeit noch nicht vor.; soecCapacity: Betrifft derzeitige Ausbaugröße (Bemessungskapazität gemäß Genehmigungsbescheid) bezogen auf öffentliche Abwasserbehandlungsanlagen ab mindestens 50 EW (p.e.) Ausbaugröße; Datenquelle: Statistisches Bundesamt (Fachserie 19 Reihe 2.2.2) 2013; Erhebung alle 3 Jahre; soecInVCol und soecTp: wirtschaftliche Kennzahlen, darunter auch Investitionszahlen für den Bereich Abwasserentsorgung werden separat im Rahmen der Statistik des produzierenden Gewerbes (Fachserie 4 Reihe 6.1) jährlich seit 2008 vom Statistischen Bundesamt erhoben und publiziert (https://www.destatis.de/GPStatistik/receive/DESerie_serie_00000070) . Die Berichte erscheinen frühestens 18 Monate nach Ablauf des Berichtzeitraumes. Vorher waren die Informationen unter ""Energie- und Wasserversorgung"" subsumiert und daher nicht separat ausweisbar. Die Erhebungspflicht besteht für Unternehmen der Abwasserentsorgung, die eine jährliche Schmutzwassermenge von 200.000 m³ und mehr behandeln. Dies deckt sich in etwa mit dem Geltungsbereich der Kommunalabwasserrichtlinie. Ein wichtiges Ergebnis dieser Erhebung sind die getätigten Investitionen. Den größten Anteil bei den Investitionen haben die Investitionen in technische Anlagen und Maschinen. Diese werden in der Statistik separat ausgewiesen. Davon werden u.a. Investitionen in Leitungs- und Rohrnetz separat ausgewiesen und hier als Investitionen in Kanalnetz angenommen. Die Angaben zu Investitionen in Anlagen ergeben sich aus der Differenz der Investitionen in technische Anlagen und Maschinen und in Kanalnetz. Zahlen zu geplanten Investitionen werden nicht erhoben und liegen daher nicht vor."
+301,26875,FI01,6400000,FIUWWINV2014_2014,20141231,,137,,50,,,,,,307,P,5470000,20140101,
+302,26875,FI01,6600000,FIUWWINV2015_2015,20151231,,139,,51,,,,,,311,P,5480000,20150101,
+303,26875,FI01,6700000,FIUWWINV2016_2016,20161231,,141,,52,,,,,,316,CU,,20160101,
+304,26875,FI01,6800000,FIUWWINV2017_2017,20171231,,143,,52,,,,,,320,EXP,,20170101,
+305,26875,FI01,6900000,FIUWWINV2018_2018,20181231,,145,,53,,,,,,325,EXP,,20180101,
+306,26875,FI01,7000000,FIUWWINV2019_2019,20191231,,147,,54,,,,,,329,EXP,,20190101,
+307,26875,FI01,7100000,FIUWWINV2020_2020,20201231,,149,,55,,,,,,334,EXP,,20200101,
+320,23253,2014EE,1700647,EEUWWINV2007_2013,20150101,,3,,0,,,,,,,P,1319364,20140101,VAT is not included; reference date 05/2016
+321,23253,2014EE,1717136,EEUWWINV2014_2020a,20160101,,3,,0,,,,,,,P,1316121,20150101,VAT is not included; reference date 05/2016
+322,23253,2014EE,1717136,EEUWWINV2014_2020b,20170101,,4,,0,,,,,,,CU,1312728,20160101,VAT is not included; reference date 05/2016
+323,23253,2014EE,1717136,EEUWWINV2014_2020c,20180101,,4,,0,,,,,,,EXP,1309118,20170101,VAT is not included; reference date 05/2016
+324,23253,2014EE,1717136,EEUWWINV2014_2020d,20190101,,15,,1,,,,,,,EXP,1305380,20180101,VAT is not included; reference date 05/2016
+325,23253,2014EE,1715016,EEUWWINV2014_2020e,20200101,,25,,0,,,,,,,EXP,1301492,20190101,VAT is not included; reference date 05/2016
+326,23253,2014EE,1715016,EEUWWINV2014_2020f,20210101,,16,,0,,,,,,,EXP,1297404,20200101,VAT is not included; reference date 05/2016
+346,26999,BG5,10101221,BGUWWINV2014_2016 ,20231231,,1931,,613,,,,,,,EXP,,20170101,
+372,26865,RO05,11215860,ROUWWINV2014_2023,20231231,5823,7497,0,1565,,30763,21985,4080,15712,761,EXP,19947311,20140101,"Amount of investment whether VAT not included. IAS cost are included. Cost measures with regard to sewerage networks (achievements, refurbishment, extensions), wastewater treatment plants (rehabilitation and modernization), wastewater treatment measures in terms of cost and sludge management. Other charges included: technical assistance for supervision of design work, pumping stations, collectors transfer water, generators, drain, waste collection, earthworks, pipeline supply pipeline bypass to the treatment plant plumbing, studies, monitoring, etc "
+380,26988,UK,90356939,UK1UWWINV2010_2015,20141231,,4220,,2522,,,,,,,CU,,20100101,Figures are in Euros based on a 1 £ sterling to 1.2961 Euros conversion.
+413,27446,CY 2015 Art.17,1298999,CYUWWINV2014,20141231,,0,,0,,,,,,,CU,,20140101,-
+414,27446,CY 2015 Art.17,1298999,CYUWWINV2015,20151231,,12,,0,,,,,,,CU,,20150101,"million euros, VAT included, Reference Date (06/2016)"
+415,27446,CY 2015 Art.17,1298999,CYUWWINV2016,20161231,,144,,0,,,,,,,EXP,,20160101,"million euros, VAT included, Reference Date (06/2016)"
+416,27446,CY 2015 Art.17,1309549,CYUWWINV2017,20171231,,0,,10,,,,,,,EXP,,20170101,"million euros, VAT included, Reference Date (06/2016)"
+417,27446,CY 2015 Art.17,1309549,CYUWWINV2018,20181231,,124,,0,,,,,,,EXP,,20180101,"million euros, VAT included, Reference Date (06/2016)"
+418,27446,CY 2015 Art.17,1347949,CYUWWINV2019,20191231,,0,,11,,,,,,,EXP,,20190101,"million euros, VAT included, Reference Date (06/2016)"
+419,27446,CY 2015 Art.17,1610516,CYUWWINV2020,20201231,,14,,114,,,,,,,EXP,,20200101,"million euros, VAT included, Reference Date (06/2016)"
+420,27446,CY 2015 Art.17,1619816,CYUWWINV2021,20211231,,0,,7,,,,,,,EXP,,20210101,"million euros, VAT included, Reference Date (06/2016)"
+421,27446,CY 2015 Art.17,1619816,CYUWWINV2022,20221231,,0,,0,,,,,,,EXP,,20220101,-
+422,27446,CY 2015 Art.17,1619816,CYUWWINV2023,20231231,,0,,0,,,,,,,EXP,,20230101,-
+423,27446,CY 2015 Art.17,1619816,CYUWWINV2024,20241231,,133,,0,,,,,,,EXP,,20240101,"million euros, VAT included, Reference Date (06/2016)"
+424,27446,CY 2015 Art.17,1619816,CYUWWINV2025,20251231,,74,,0,,,,,,,EXP,,20250101,"million euros, VAT included, Reference Date (06/2016)"
+425,27446,CY 2015 Art.17,1619816,CYUWWINV2026,20261231,,48,,0,,,,,,,EXP,,20260101,"million euros, VAT included, Reference Date (06/2016)"
+426,27446,CY 2015 Art.17,1721116,CYUWWINV2027,20271231,,0,,69,,,,,,,EXP,,20270101,"million euros, VAT included, Reference Date (06/2016)"
+427,27446,CY 2015 Art.17,,CYUWWINV2011,20131231,,0,,28,,,,,,,P,,20110101,"million euros, VAT included, Reference Date (06/2016)"
+373,26755,HR_Art17_2014,7589670,HRUWWINV2014_2023,20231231,,1997,,883,,,,,,,EXP,,20140101,
+374,26755,HR_Art17_2014,7356820,HRUWWINV2015_2023,20231231,,2021,,880,,,,,,,EXP,,20150101,
+381,26988,UK,88586890,UK1UWWINV2015_2021,20211231,,5214,,942,,,,,,,EXP,,20150101,Figures are in Euros based on a 1 £ sterling to 1.2961 Euros conversion.
+394,27054,PT_2014,4127124,PTUWWINV2013_2021,20211231,143377,10525,,196767,,,,,,,EXP,10358511,20130101,"A soecCapacity e os soeINV correspondem às ETAR reportadas ao abrigo do art.º 17.º da DARU. A soecCapacity corresponde à carga que entra nas ETAR no ano horizonte de projeto. Reportaram-se três períodos P(<2013, CU (2014) e EXP (2015-2021) porque não se consegue obter a informação discriminada."
+395,23173,IE2014,6937303,IEUWWINV2017_2021,20211231,,548,,1013,,,,,,,EXP,,20170101,The expected WWTP capacity comprises of current installed capacity of 5931668 pe plus an expected additional installed capacity to the year 2021 of 1005635. Collecting Systems investment comprises capital maintenance of 74.1M and capital investment & national programmes of 473.5M.   WWTPs investment comprises capital maintenance 71.3M and capital investment & national programmes of 941.8M.  All investments are in million euro and include VAT.
+375,27053,NL2016,21900000,NLUWWINV2010_2012,20121231,,2922,,1015,,,,,,4879,P,16901000,20100101,"InvCol: Prijspeil 2012_exclusief BTW / InvTp: Prijspeil 2012 inclusief BTW / OpCosts: Prijspeil 2012 (riolering 1,705 exclusief BTW; rwzi's 3,174 inclusief BTW) / soecPop referentiejaar 2014"
+376,27053,NL2016,21800000,NLUWWINV2013_2015,20151231,,3365,,715,,,,,,5140,CU,16901000,20130101,"InvCol: Prijspeil 2012_exclusief BTW / InvTp: Prijspeil 2012 inclusief BTW / OpCosts: Prijspeil 2012/2014 (riolering 1,856 exclusief BTW; rwzi's 3,284 inclusief BTW)  / soecPop referentiejaar 2014"
+377,27053,NL2016,21800000,NLUWWINV2016_2020,20201231,,5013,,1700,,,,,,,EXP,16901000,20160101,InvCol: Prijspeil 2012_exclusief BTW / InvTp: Prijspeil 2012 inclusief BTW / soecPop referentiejaar 2014
+378,27053,NL2016,21800000,NLUWWINV2021_2025,20251231,,3897,,1700,,,,,,,EXP,16901000,20210101,InvCol: Prijspeil 2012_exclusief BTW / InvTp: Prijspeil 2012 inclusief BTW / soecPop referentiejaar 2014
+379,27053,NL2016,21800000,NLUWWINV2026_2030,20301231,,4484,,1500,,,,,,,EXP,16901000,20260101,InvCol: Prijspeil 2012_exclusief BTW / InvTp: Prijspeil 2012 inclusief BTW / soecPop referentiejaar 2014
+396,27064,PL03,46370111,PLUWWINV2014_2021,20211231,,4678,,2479,,131010,120514,25909,42207,,EXP,29728816,20141231,"*soecPeriod - EXP dotyczy : soecInvCol, soecInvTp
+**soecPop - dotyczy tylko mieszkañców aglomeracji                                ***soecInvCol,soecInvTp  - wyliczono zgodnie z kursem z 12/2014 (wartoæ uwzglêdniaj¹ VAT)"
+428,27445,1,0,ESUWWINV2015,20151231,0,7,0,268,0,0,0,0,0,0,EXP,0,20150101,**
+429,27445,1,0,ESUWWINV2016,20161231,0,9,0,322,0,0,0,0,0,0,EXP,0,20160101,**
+448,27451,GR_UWWTD_ 2014,15000000,GRUWWINV2014_2020,20201231,,1000,,800,,,,,,,EXP,,20150101,The VAT is not icluded. The investment's amount includes  the investments for the not compliant situations and also the needs for renovation and  maintainance of the performance of the whole system.  
+459,27444,IT005,8400568,ITUWWINV2006_2019,,,349,,253.2,,,,,,,P,,,I costi degli investimenti sono da intendersi IVA esclusa.
+460,27444,IT005,8658759,ITUWWINV2006_2019,,,70.6,,46.4,,,,,,,EXP,,,I costi degli investimenti sono da intendersi IVA esclusa.
+461,27444,IT005,8606282,ITUWWINV2006_2019,,,74.2,,51,,,,,,,EXP,,,I costi degli investimenti sono da intendersi IVA esclusa.
+462,27444,IT005,8553806,ITUWWINV2006_2019,,,64.8,,47.4,,,,,,,EXP,,,I costi degli investimenti sono da intendersi IVA esclusa.
+463,27444,IT005,8501329,ITUWWINV2006_2019,,,42.3,,47.6,,,,,,,EXP,,,I costi degli investimenti sono da intendersi IVA esclusa.
+464,27444,IT005,8448852,ITUWWINV2006_2019,,,38.8,,50.7,,,,,,,CU,,,I costi degli investimenti sono da intendersi IVA esclusa.
+465,27444,IT005,8453071,ITUWWINV2006_2019,,,51.8,,60.8,,,,,,,P,,,I costi degli investimenti sono da intendersi IVA esclusa.
+466,27444,IT005,8711236,ITUWWINV2006_2019,,,56,,40.5,,,,,,,EXP,,,I costi degli investimenti sono da intendersi IVA esclusa.
+467,27444,IT005,8784173,ITUWWINV2014,,,19.163077,,35.134266,,,,,,,P,,,
+468,27444,IT005,1833521,ITUWWINV2014,,,13.08421534,,13.08139,,,,,,,CU,,,IVA esclusa - Importi da Consuntivo 2014
+469,27444,IT005,9949264,ITUWWINV2014_2015,,,493186901.73,,644737817.76,,,,,,,CU,,,Interventi Programmati e in esecuzione
+470,27444,IT005,9010253,ITUWWINV2014_2016,,,46.63,,28.66,,,,,,,CU,,,"Importi IVA esclusa derivanti dai Programmi degli interventi redatti dagli Enti di Governo d'Ambito per il periodo 2014-2017. La programmazione aggiornata, per il periodo 2016-2019, sarà disponibile nel mese di maggio 2016."
+471,27444,IT005,27300000,ITUWWINV2014_2016,,,156.2,,124.55,,,,,,,EXP,,,
+472,27444,IT005,30125810,ITUWWINV2014_2017,,,542487444.4,,136600253.148,,,,,,,P,,,
+473,27444,IT005,15062768,ITUWWINV2014_2017,,,271243722.2,,68300126.574,,,,,,,A,,,
+474,27444,IT005,15062768,ITUWWINV2014_2017,,,271243722.2,,68300126.574,,,,,,,EXP,,,
+475,27444,IT005,11882550,ITUWWINV2014_2019,,,109.561421,,114.176144,,,,,,,EXP,,,
+476,27444,IT005,2368790,ITUWWINV2014_2019,,,7.852473,,6.094441,,,,,,,CU,,,
+477,27444,IT005,14559756,ITUWWINV2015,,,666689873.43644,,778101498.54046,,,,,,,EXP,,,
+478,27444,IT005,8813173,ITUWWINV2015,,,3241194.798029,,4861781.159966,,,,,,,P,,,
+479,27444,IT005,,ITUWWINV2015_2018,,,8704308,,45480089,,,,,,,CU,,,Dato parziale riferito all'Ente d'Ambito Chietino
+480,27444,IT005,13084082,ITUWWINV2016,,,22541431.586,,33812107.38,,,,,,,CU,,,
+481,27444,IT005,20367504,ITUWWINV2016,,,80715746.805616,,173834598.07627,,,,,,,EXP,,,
+482,27444,IT005,984932,ITUWWINV2016_2019,,,48150000,,91797302,,,,,,,EXP,,,IMPORTO DEGLI INVESTIMENTI PREVISTI COMPRESO IVA
+483,27444,IT005,78000,ITUWWINV2016_2021,,,,,,,,,,,7277117.62,EXP,,,
+484,27444,IT005,78000,ITUWWINV2016_2021,,,,,,,,,,,6000000,EXP,,,
+485,27444,IT005,60000,ITUWWINV2016_2021,,,,,,,,,,,6000000,EXP,,,
+486,27444,IT005,78000,ITUWWINV2016_2021,,,,,,,,,,,7277117.62,EXP,,,
+487,27444,IT005,78000,ITUWWINV2016_2021,,,,,,,,,,,7277117.62,EXP,,,
+488,27444,IT005,23893087,ITUWWINV2017,,,105567908.242568,,151351910.740125,,,,,,,EXP,,,
+489,27444,IT005,24567602,ITUWWINV2018,,,84961075.2591646,,574364235.517718,,,,,,,EXP,,,
+490,27444,IT005,24820938,ITUWWINV2019,,,80125300.5573296,,138152634.899319,,,,,,,EXP,,,
+491,27444,IT005,23045813,ITUWWINV2020,,,46580879.2567256,,38822310.7406604,,,,,,,EXP,,,
+492,27444,IT005,,ITUWWINV2020_2025,,,29.925,,32.68,,,,,,,EXP,,,IVA esclusa - Importi da nuovo Piano in elaborazione di prossima approvazione
+493,27444,IT005,9446983,ITUWWINV2021,,,700014.72426762,,7082210.46239639,,,,,,,EXP,,,
+494,27444,IT005,9449556,ITUWWINV2022,,,12.15368362,,551370.703914385,,,,,,,EXP,,,
+495,27444,IT005,3271308,ITUWWINV2023,,,12.26468762,,37.375685385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+496,27444,IT005,3271308,ITUWWINV2024,,,11.61505662,,29.030197385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+497,27444,IT005,3340308,ITUWWINV2025,,,11.80718662,,24.119519385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+498,27444,IT005,3340308,ITUWWINV2026,,,12.39183362,,7.1839573846,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+499,27444,IT005,3340308,ITUWWINV2027,,,12.00950462,,10.868482385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+500,27444,IT005,3340308,ITUWWINV2028,,,12.01243262,,10.814287385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+501,27444,IT005,3340308,ITUWWINV2029,,,12.01861862,,10.847573385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+502,27444,IT005,3340308,ITUWWINV2030,,,12.18951662,,10.896689385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+503,27444,IT005,3340308,ITUWWINV2031,,,12.46124062,,11.199029385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+504,27444,IT005,3340308,ITUWWINV2032,,,10.83389262,,15.840179385,,,,,,,EXP,,,"ATO Ovest (Provincia di Imperia): Fonte PdA 2012, previo riparto degli importi complessivi relativi al trentennio di copertura temporale; ATO Centro-Ovest 1, 2 e 3 (Provincia di Savona): Fonte PdA 2015; ATO Centro-Est (Città Metropolitana di Genova): Font"
+505,23182,FRR1,101900225,FR2014,20141231,21,2750,660,1550,32000,11898,,,12260,,CU,66,20140101,"inv : 1129 financés par les agences de leau.Jobs :Entre 26400 et 32000 selon les sources INSEE, rubrique A8837 et source CGDD, stable depuis 2010.Fonds européens : 14 millions d'euros pour la Guyane et 6,6 millions d'euros pour la Guadeloupe. Longueur des réseaux :370 000 km de réseaux dassainissement daprès les canalisateurs de France, il a été posé 11898 km de réseaux dassainissement en 2014.Nombre dassainissement non collectif : La donnée correspond au nombre dassainissement non collectif cofinancés par les agences de leau pour la métropole.Nombre dhabitants : Au 1er janvier 2015, la France compte 66,3 millions dhabitants : 64,2 millions en France métropolitaine et 2,1 millions dans les cinq départements doutre-mer. Cest environ 300 000 personnes de plus quun an auparavant, soit une hausse de 0,4 %. "
+506,23182,FRR1,102755974,FR20152018,20181231,,11000,2640,6200,,,,,,,EXP,,20150101,
+382,27065,DK,11450300,DKUWWIN2010,20101231,,320,,160,,,,,,,P,,20100101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+383,27065,DK,11450300,DKUWWIN2011,20111231,,440,,220,,,,,,,P,,20110101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+384,27065,DK,11450300,DKUWWIN2012,20121231,,480,,240,,,,,,,P,,20120101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+385,27065,DK,11450300,DKUWWIN2013,20131231,,507,,253,,,,,,,P,,20130101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+386,27065,DK,11307100,DKUWWIN2014,20141231,,533,,266,,,,,,,P,,20140101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+387,27065,DK,11307100,DKUWWIN2015,20151231,,533,,266,,,,,,,P,,20150101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+388,27065,DK,11307100,DKUWWIN2016,20161231,,533,,266,,,,,,,P,,20160101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+389,27065,DK,11307100,DKUWWIN2017,20171231,,533,,266,,,,,,,P,,20170101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+390,27065,DK,11307100,DKUWWIN2018,20181231,,533,,266,,,,,,,P,,20180101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+391,27065,DK,11307100,DKUWWIN2019,20191231,,533,,266,,,,,,,P,,20190101,the division between collection systems and tretmentplant are unknown and ar estimatetet to 2/3 and 1/3
+392,27264,656,13635195,SEUWWWINV2014,20141231,,0,,0,,,,,,,CU,,20140101,"We have initiated a process in order to collect the requested information about investment costs for the following reporting exercises including the implementation of a national programme.  
+
+"
+393,27264,656,256400,SEUWWWINV2014_2020,20201231,,0,,121,,,,,,,EXP,,20140101,"Unit: million EUROS, estimated investment costs, VAT not included. "
+397,26994,"""SI_2016_Art_",2123009,SIUWWINV2006,20061231,,0,,0,,,,,,,P,,20060101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+398,26994,SI_2016_Art_17,2148534,SIUWWINV2007,20071231,,48,,31,,,,,,,P,,20070101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+399,26994,SI_2016_Art_17,2154054,SIUWWINV2008,20081231,,62,,40,,,,,,,P,,20080101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+400,26994,SI_2016_Art_17,2353764,SIUWWINV2009,20091231,,91,,59,,,,,,,P,,20090101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+401,26994,SI_2016_Art_17,2397334,SIUWWINV2010,20101231,,79,,41,,,,,,,P,,20100101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+402,26994,SI_2016_Art_17,2443579,SIUWWINV2011,20111231,,63,,46,,,,,,,P,,20110101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+403,26994,SI_2016_Art_17,2453802,SIUWWINV2012,20121231,,70,,46,,,,,,,P,,20120101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+404,26994,SI_2016_Art_17,2464752,SIUWWINV2013,20131231,,69,,38,,,,,,,P,,20130101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+405,26994,SI_2016_Art_17,2494752,SIUWWINV2014,20141231,,103,,60,,,,,,,P,,20140101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+406,26994,SI_2016_Art_17,2509002,SIUWWINV2015,20151231,,118,,91,,,,,,,CU,,20150101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+407,26994,SI_2016_Art_17,2797852,SIUWWINV2016,20161231,,61,,57,,,,,,,EXP,,20160101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+408,26994,SI_2016_Art_17,2801852,SIUWWINV2017,20171231,,59,,17,,,,,,,EXP,,20170101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+409,26994,SI_2016_Art_17,2801852,SIUWWINV2018,20181231,,38,,6,,,,,,,EXP,,20180101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+410,26994,SI_2016_Art_17,2801852,SIUWWINV2019,20191231,,26,,2,,,,,,,EXP,,20190101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+411,26994,SI_2016_Art_17,2801852,SIUWWINV2020,20201231,,20,,2,,,,,,,EXP,,20200101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+412,26994,SI_2016_Art_17,2801852,SIUWWINV2021,20211231,,10,,2,,,,,,,EXP,,20210101,"tekoe cene, davek na dodano vrednost ni vkljuen"
+430,27445,1,0,ESUWWINV2017,20171231,0,2,0,400,0,0,0,0,0,0,EXP,0,20170101,**
+431,27445,1,0,ESUWWINV2018,20181231,0,2,0,1116,0,0,0,0,0,0,EXP,0,20180101,**
+432,27445,1,0,ESUWWINV2019,20191231,0,11,0,1002,0,0,0,0,0,0,EXP,0,20190101,**
+433,27445,1,0,ESUWWINV2020,20201231,0,11,0,534,0,0,0,0,0,0,EXP,0,20200101,**
+434,27445,1,0,ESUWWINV2021,20211231,0,2,0,249,0,0,0,0,0,0,EXP,0,20210101,**
+435,27445,1,0,ESUWWINV2022,20221231,0,0,0,64,0,0,0,0,0,0,EXP,0,20220101,**
+436,27445,1,0,ESUWWINV2023,20231231,0,0,0,74,0,0,0,0,0,0,EXP,0,20230101,**
+437,27445,1,0,ESUWWINV2024,20241231,0,0,0,74,0,0,0,0,0,0,EXP,0,20240101,**
+438,27445,1,0,ESUWWINV2025,20251231,0,0,0,74,0,0,0,0,0,0,EXP,0,20250101,**
+439,27445,1,0,ESUWWINV2026,20261231,0,0,0,116,0,0,0,0,0,0,EXP,0,20260101,**
+440,27445,1,0,ESUWWINV2027,20271231,0,0,0,3,0,0,0,0,0,0,EXP,0,20270101,**
+441,27445,1,0,ESUWWINV2028,20281231,0,0,0,3,0,0,0,0,0,0,EXP,0,20280101,**
+442,27445,1,0,ESUWWINV2029,20291231,0,0,0,3,0,0,0,0,0,0,EXP,0,20290101,**
+443,27445,1,0,ESUWWINV2030,20301231,0,0,0,3,0,0,0,0,0,0,EXP,0,20300101,**
+444,27452,LV005,2214760,LVUWWINV2007_2015,20151231,,196,,48,,,,,,,P,2001468,20070101,Total design capacity is the sum of all organic design capacity of the UWWTDPs reported under article 15 for compliant and not compliant situations. Current investment costs of the treatment plants and collecting systems are calculated from information of 76 agglomerations with population equivalent more than 2000.
+445,27452,LV005,2249163,LVUWWINV2016_2022,20221231,,149,,0,,,,,,,EXP,,20160101,
+446,27452,LV005,2249163,LVUWWINV2010_2014,20141231,,127,,50,,,,,,,P,2001468,20100101,Total design capacity is the sum of all organic design capacity of the UWWTDPs reported under article 15 for compliant and not compliant situations. Current investment costs of the treatment plants and collecting systems are calculated from information of 76 agglomerations with population equivalent more than 2000.
+447,27452,LV005,2249163,LVUWWINV2015_2016,20161231,,103,,10,,,,,,,CU,,20150101,
