@@ -1,7 +1,7 @@
 
 (document Dante word passat a markdown):
 
-## Taula T_UWWTPS
+## Taula T_UWWTPS (1/5)
 
 Camp uwwUWWTPSID:
 és el ID. Jo el canviaria per uwwID i començaria des de 1.
@@ -114,7 +114,7 @@ if uwwPremoval => "P"
 
 Un cop fet els condicionals, caldrà afegir una columna amb el nom: uwwTypeofTreatment i el resultat de cada condicional
 
-## Taula T_Agglomerations
+## Taula T_Agglomerations (2/5)
 
 aggCode (clau primària)
 
@@ -149,7 +149,7 @@ AggState
 3. Avisar quan hi ha registres amb NULL en aquells camps on no es permet NULL
 
 
-## Taula T_DischargePoints
+## Taula T_DischargePoints (3/5)
 
 dcpDiscargePointsID
 és la clau primaria. Jo canviaria per dcpID i començaria des d’1
@@ -192,7 +192,7 @@ Tipus camp: Year
 2. Comprovar que no hi hagi camps repetits a dcpID (pendent revisar, de moment no aplicar).
 3. Avisar quan hi ha registres amb NULL en aquells camps on no es permet NULL
 
-## Taula T_UWWTPS_emission_load
+## Taula T_UWWTPS_emission_load (4/5)
 
 uwwCode
 
@@ -227,7 +227,7 @@ Permet NULL
 2. Comprovar que no hi hagi duplicats a uwwCode. En cas que n’hi hagi, s’hauria de notificar per tal que l’usuari esculli quin registre vol eliminar
 3. Notificar si hi ha registres en NULL en aquells camps on no es permet NULL
 
-## Taula T_UWWTPAgglos
+## Taula T_UWWTPAgglos (5/5)
 
 AucUWWTP_AggloID
 És la clau primaria. Jo la canviaria per uww_aggloID, i començaria des d’1
