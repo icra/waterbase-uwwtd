@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
-  please use python >= 3.7
+  siusplau fes servir python >= 3.7
+
   Aquest script processa 5 fitxers csv obtinguts de
   https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5
 
@@ -10,9 +11,8 @@
   'T_UWWTPS_emission_load.csv': 'T_UWWTPs_emission_load',
   'T_UWWTPs.csv'              : 'T_UWWTPs',
 
-  fa una serie d'operacions definides a
-  DEFINIR
-  i guarda la base de dades resultant en un fitxer "directiva.sqlite" per poder-lo manipular posteriorment amb sqlite3(1)
+  fa una serie d'operacions definides a "operacions.md"
+  i guarda la base de dades resultant en un fitxer ".sqlite" per poder-lo manipular posteriorment amb sqlite3(1)
 '''
 import csv
 import os
@@ -20,7 +20,7 @@ import sqlite3
 import sys
 
 #new sqlite file and new cursor to execute queries
-db=sqlite3.connect("waterbase_UWWTD_v6.sqlite");
+db=sqlite3.connect("waterbase.sqlite");
 c=db.cursor()
 
 #create 5 new empty tables in sql
