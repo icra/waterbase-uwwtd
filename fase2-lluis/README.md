@@ -16,7 +16,7 @@ Resultat:
   Importing T_UWWTPs.csv... Done (30437 rows)
 ```
 
-Aquesta instrucció generarà un arxiu ```waterbase_UWWTD_vX.sqlite``` que es pot obrir amb la comanda ```sqlite3(1)``` 
+Aquesta instrucció generarà un arxiu ```waterbase_UWWTD_vX.sqlite``` que es pot obrir amb la comanda ```sqlite3(1)```
 
 Nota: els fitxers descarregats de la web europea tenen codificació ASCII o
 ISO-8859 (entre d'altres). És molt important que els arxius csv estiguin en
