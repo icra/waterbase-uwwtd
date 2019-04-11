@@ -1,10 +1,10 @@
 ## Passos a seguir
 
-Objectiu: combinar les taules des de fitxers CSV i fer consultes SQL avançades des de diferents programes com ara GIS o R.
+Objectiu: combinar 5 taules (5 arxius CSV descarregats de
+https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
+per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-Per generar un arxiu SQL (base de dades), processant 5 arxius csv extrets de
-https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5,
-executar a un terminal (bash) la següent comanda:
+Per generar l'arxiu SQL (base de dades) que combina les 5 taules, executar en un terminal (bash) la següent comanda:
 
 ```shell
   python3.7 import_csv_files.py
