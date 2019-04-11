@@ -1,4 +1,6 @@
-# passos a seguir per poder combinar les taules i fer consultes SQL avançades
+## Passos a seguir 
+
+Objectiu: poder combinar les taules i fer consultes SQL avançades
 
 Per processar els csv extrets de<br>https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5 :
 
