@@ -1,13 +1,8 @@
 #!/bin/bash
 
-#sqlite3 options:
-# -line display formatted output
-# -html  Query results will be output as simple HTML tables.
-# -csv   Set output mode to CSV (comma separated values).
-# -[no]header Turn headers on or off.
-sqlite="sqlite3 -line waterbase_UWWTD_v6.sqlite"
+# Aquest script contindrà la comanda SQL per combinar totes les taules 
 
-tables=(
+taules=(
   'T_Agglomerations' \
   'T_DischargePoints' \
   'T_UWWTP_Agglo' \
@@ -15,8 +10,16 @@ tables=(
   'T_UWWTPs' \
 )
 
-for table in ${tables[@]};do
-  echo $table
+#sqlite3 options:
+# -line display formatted output
+# -html  Query results will be output as simple HTML tables.
+# -csv   Set output mode to CSV (comma separated values).
+# -[no]header Turn headers on or off.
+opcions="-line"
+sqlite="sqlite3 $opcions waterbase_UWWTD_v6.sqlite"
+
+for taula in ${taules[@]};do
+  echo $taula
   echo "----------"
-  $sqlite "SELECT * FROM $table LIMIT 1"
+  $sqlite "SELECT * FROM $taula LIMIT 1"
 done

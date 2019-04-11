@@ -1,4 +1,4 @@
-## Passos a seguir 
+## Passos a seguir
 
 Objectiu: poder combinar les taules i fer consultes SQL avançades.
 
@@ -18,19 +18,20 @@ Resultat:
 
 Aquesta instrucció generarà un arxiu ```waterbase_UWWTD_vX.sqlite``` que es pot obrir amb la comanda ```sqlite3(1)``` 
 
-Nota: els fitxers descarregats de la web europea tenen codificacions no estàndard
-(ascii i ISO-8859 entre d'altres). És molt important que els arxius csv
-estiguin en format utf-8, sinó donarà error. Per convertir els fitxers a utf-8
-es pot fer servir la utilitat ```iconv(1)``` o copiar i enganxar els arxius a
-un nou fitxer de text fent servir un editor de text.
+Nota: els fitxers descarregats de la web europea tenen codificació ASCII o
+ISO-8859 (entre d'altres). És molt important que els arxius csv estiguin en
+format UTF-8, sinó la comanda ```import_waterbase_csv_files``` donarà error.
+Per convertir els fitxers a utf-8 es pot fer servir la comanda ```iconv(1)``` o
+copiar i enganxar els arxius a un nou fitxer de text fent servir un editor de
+text.
 
-Per obrir la base de dades de forma interactiva, executar la comanda:
+Per obrir la base de dades recent generada de forma interactiva, executar la comanda:
 
 ```shell
   sqlite3 waterbase_UWWTD_v6.sqlite
 ```
 
-O per realitzar consultes de forma no interactiva (en shell scripts), es pot fer:
+Per realitzar consultes de forma no interactiva (en shell scripts), es pot fer:
 
 ```shell
   sqlite3 -line waterbase_UWWTD_v6.sqlite "SELECT * FROM T_Agglomerations LIMIT 1"
@@ -43,8 +44,8 @@ Resultat:
   aggBeginLife = 20061231
   aggCalculation = treatment capacity of plant as indication for generated load
   aggChanges = no
-  aggChangesComment = 
-  aggEndLife = 
+  aggChangesComment =
+  aggEndLife =
   aggGenerated = 8000
   aggLatitude = 47.7787
   aggLongitude = 17.0491
@@ -56,15 +57,13 @@ Resultat:
   aggMethodWithoutTreatment = E
   aggPercWithoutTreatment = 0
   aggState = 1
-  bigCityID = 
+  bigCityID =
   rptMStateKey = AT
   ReportNetEnvelopeFileId = 27679
 ```
 
-executar consulta amb sqlite
+La comanda SQL per combinar les taules està aquí dins:
 
 ```shell
   bash query_sqlite.sh
 ```
-
-

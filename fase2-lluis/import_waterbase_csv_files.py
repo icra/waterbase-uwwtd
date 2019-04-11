@@ -2,6 +2,7 @@
 '''
   please use python >= 3.7
   Aquest script processa 5 fitxers csv obtinguts de
+  https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5
 
   'T_Agglomerations.csv'      : 'T_Agglomerations',
   'T_DischargePoints.csv'     : 'T_DischargePoints',
@@ -9,7 +10,6 @@
   'T_UWWTPS_emission_load.csv': 'T_UWWTPs_emission_load',
   'T_UWWTPs.csv'              : 'T_UWWTPs',
 
-  https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5
   fa una serie d'operacions definides a
   DEFINIR
   i guarda la base de dades resultant en un fitxer "directiva.sqlite" per poder-lo manipular posteriorment amb sqlite3(1)
