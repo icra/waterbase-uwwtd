@@ -18,12 +18,13 @@ un terminal (bash) la següent comanda:
 ```
 Resultat:
 ```
-  Importing T_Agglomerations.csv... Done (27848 rows)
-  Importing T_DischargePoints.csv... Done (30031 rows)
-  Importing T_UWWTPAgglos.csv... Done (28372 rows)
-  Importing T_UWWTPS_emission_load.csv... Done (30437 rows)
-  Importing T_UWWTPs.csv... Done (30437 rows)
+  Importing  T_Agglomerations.csv...        Done  (27848  rows)
+  Importing  T_DischargePoints.csv...       Done  (30031  rows)
+  Importing  T_UWWTPAgglos.csv...           Done  (28372  rows)
+  Importing  T_UWWTPS_emission_load.csv...  Done  (30437  rows)
+  Importing  T_UWWTPs.csv...                Done  (30437  rows)
 ```
+Temps execució estimat: uns 5 segons
 
 Aquesta instrucció crea un arxiu base de dades ```waterbase.sqlite```, que es
 pot obrir amb la comanda ```sqlite3(1)```
