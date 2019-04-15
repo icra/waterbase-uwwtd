@@ -10,7 +10,8 @@ Objectiu: combinar 5 taules (5 arxius CSV descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-Per generar l'arxiu SQL (base de dades) que combina les 5 taules, executar en un terminal (bash) la següent comanda:
+Per generar l'arxiu SQL (base de dades) que combina les 5 taules, executar en
+un terminal (bash) la següent comanda:
 
 ```shell
   python3.7 import_csv_files.py
@@ -24,7 +25,8 @@ Resultat:
   Importing T_UWWTPs.csv... Done (30437 rows)
 ```
 
-Aquesta instrucció crea un arxiu base de dades ```waterbase.sqlite```, que es pot obrir amb la comanda ```sqlite3(1)```
+Aquesta instrucció crea un arxiu base de dades ```waterbase.sqlite```, que es
+pot obrir amb la comanda ```sqlite3(1)```
 
 Nota: els fitxers descarregats de la web europea tenen codificació ASCII o
 ISO-8859 (entre d'altres). És molt important que els arxius csv estiguin en
@@ -48,7 +50,8 @@ Ara ja es poden fer consultes SQL directament a la consola, com per exemple:
   2297482|ATAG_1-00000005|Deutschkreuz (Mittleres Burgenland) Goldbachtal|20061231|treatment capacity of plant as indication for generated load|no|||65000|47.5945|16.6406|98.7|E|1.3|E|A T111|E|0|1||AT|27679
 ```
 
-Per realitzar consultes de forma no interactiva (útil per scripting), es pot executar la següent comanda:
+Per realitzar consultes de forma no interactiva (útil per scripting), es pot
+executar la següent comanda:
 
 ```shell
   sqlite3 -line waterbase_UWWTD_v6.sqlite "SELECT * FROM T_Agglomerations LIMIT 1"
@@ -80,10 +83,15 @@ Resultat:
   ReportNetEnvelopeFileId = 27679
 ```
 
-Per fer comandes avançades (més complicades) millor fer-ho dins de scripts, com per exemple ```query_sqlite.sh```, que conté un exemple de comanda SQL avançada.
+Per fer comandes avançades (més complicades) millor fer-ho dins de scripts, com
+per exemple ```query_sqlite.sh```, que conté un exemple de comanda SQL
+avançada.
 
 ```shell
   bash query_sqlite.sh
 ```
 
-Finalment, per fer consultes a la base de dades ```waterbase.sqlite``` des de qGIS, R, o altres programes, consultar el manual corresponent per fer una connexió amb l'arxiu ```waterbase.sqlite```.
+Finalment, per fer consultes a la base de dades ```waterbase.sqlite``` des de
+qGIS, R, o altres programes, consultar el manual corresponent per fer una
+connexió amb l'arxiu ```waterbase.sqlite```.
+
