@@ -1,10 +1,10 @@
 *status*: en desenvolupament (seguint passos arxiu 'operacions.docx.md')
 
-__Objectiu__: processar 5 taules (arxius CSV descarregats de
+__Objectiu__: processar 5 taules (arxius CSV grans descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-fase2: seguir feina anna, transformar gui php a fitxer python (+ ràpid)
+__fase2__: seguir feina fase 1 anna, transformant gui php a fitxer python (+ ràpid)
 
 ## Requeriments
 - python3 >= 3.6 (important per mantenir ordre columnes, per sota v3.6 no funciona)
