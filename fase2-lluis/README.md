@@ -11,7 +11,7 @@ fase2: seguir feina anna, transformar gui php a fitxer python (+ ràpid)
 - sqlite3
 
 ## Procediment
-Per generar l'arxiu SQL (base de dades) que combina les 5 taules, executar en
+Per generar l'arxiu SQL (base de dades) ```waterbase.sqlite``` que combina les 5 taules, executar en
 un terminal (bash) la següent comanda:
 
 ```shell
