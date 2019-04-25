@@ -4,8 +4,6 @@ https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-t
 
 HTML, CSS, PHP, SQL.
 
-(Fitxer prova.sql conté les taules de la BD per importar directament).
-
 Les dades són pujades a un servidor i es tracten segons les operacions que
 indica en Dante.  El tractament de dades es fa amb SQL ja que resulta més fàcil
 i ràpid.  Hi ha dues bases de dades per fitxer pujat, una taula final i una
@@ -25,7 +23,7 @@ les operacions.  S'ha de fer una taula extra només d'errors d'operacions per
 saber quin tipus d'operació s'ha fet per solucionar l'error i quin error hi
 havia anteriorment.
 
-(Mirar document "operacions.docx" per saber les operacions a fer i detalls).
+(Mirar document "operacions.docx.md" per saber les operacions a fer i detalls).
 
 Tots els errors i warnings seran mostrats per pantalla per a què l'usuari pugui
 arreglar els seus excels i tornar- los a pujar arreglats, fins que no doni

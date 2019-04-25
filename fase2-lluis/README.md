@@ -1,15 +1,16 @@
-status: en desenvolupament (seguint passos de l'arxiu 'operacions.docx.md')
+*status*: en desenvolupament (seguint passos arxiu 'operacions.docx.md')
 
-## Requeriments
-- python >= 3.6
-- sqlite3
-
-## Procediment
-
-Objectiu: combinar 5 taules (5 arxius CSV descarregats de
+__Objectiu__: processar 5 taules (arxius CSV descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
+fase2: seguir feina anna, transformar gui php a fitxer python (+ ràpid)
+
+## Requeriments
+- python3 >= 3.6 (important per mantenir ordre columnes, per sota v3.6 no funciona)
+- sqlite3
+
+## Procediment
 Per generar l'arxiu SQL (base de dades) que combina les 5 taules, executar en
 un terminal (bash) la següent comanda:
 
@@ -95,4 +96,3 @@ avançada.
 Finalment, per fer consultes a la base de dades ```waterbase.sqlite``` des de
 qGIS, R, o altres programes, consultar el manual corresponent per fer una
 connexió amb l'arxiu ```waterbase.sqlite```.
-
