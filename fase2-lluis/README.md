@@ -15,7 +15,7 @@ Per generar l'arxiu SQL (base de dades) ```waterbase.sqlite``` que combina les 5
 un terminal (bash) la següent comanda:
 
 ```shell
-  python3.7 import_csv_files.py
+  $ python3.7 import_csv_files.py
 ```
 Resultat:
 ```
@@ -27,7 +27,7 @@ Resultat:
 ```
 Temps execució estimat: uns 5 segons
 
-Aquesta instrucció crea un arxiu base de dades ```waterbase.sqlite```, que es
+Aquesta instrucció crea un arxiu anomenat ```waterbase.sqlite```, que es
 pot obrir amb la comanda ```sqlite3(1)```
 
 Nota: els fitxers descarregats de la web europea tenen codificació ASCII o
@@ -40,7 +40,7 @@ text.
 Per obrir la base de dades de forma interactiva, executar la següent comanda:
 
 ```shell
-  sqlite3 waterbase_UWWTD_v6.sqlite
+  $ sqlite3 waterbase_UWWTD_v6.sqlite
 ```
 
 Ara ja es poden fer consultes SQL directament a la consola, com per exemple:
@@ -56,7 +56,7 @@ Per realitzar consultes de forma no interactiva (útil per scripting), es pot
 executar la següent comanda:
 
 ```shell
-  sqlite3 -line waterbase_UWWTD_v6.sqlite "SELECT * FROM T_Agglomerations LIMIT 1"
+  $ sqlite3 -line waterbase_UWWTD_v6.sqlite "SELECT * FROM T_Agglomerations LIMIT 1"
 ```
 
 Resultat:
@@ -90,7 +90,7 @@ per exemple ```query_sqlite.sh```, que conté un exemple de comanda SQL
 avançada.
 
 ```shell
-  bash query_sqlite.sh
+  $ bash query_sqlite.sh
 ```
 
 Finalment, per fer consultes a la base de dades ```waterbase.sqlite``` des de
