@@ -109,6 +109,7 @@ UWWTP-AGGLOs (relacional depuradora-aglomeració)
   després de comprovar, tornar a mirar si sumen 100%
 
   s'ha de crear un punt de descàrrega per cada aglomeració que correspon a open defecation (que es pot fer servir o no)
+  "punts que no van a depuradora"
 
 PUNTS DE DESCÀRREGA + AGLOMERACIONS + DEPURADORES
 -------------------------------------------------
