@@ -5,27 +5,27 @@
   Aquest script processa 5 fitxers csv obtinguts de
   https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5
 
-  'T_Agglomerations.csv'      : 'T_Agglomerations',
-  'T_DischargePoints.csv'     : 'T_DischargePoints',
-  'T_UWWTPAgglos.csv'         : 'T_UWWTP_Agglo',
-  'T_UWWTPS_emission_load.csv': 'T_UWWTPs_emission_load',
-  'T_UWWTPs.csv'              : 'T_UWWTPs',
+  'dbo.VL_Agglomerations.csv'      : 'Agglomerations',
+  'dbo.VLS_DischargePoints.csv'    : 'DischargePoints',
+  'dbo.VL_UWWTPAgglos.csv'         : 'UWWTPAgglos',
+  'dbo.V_UWWTPS_emission_load.csv' : 'UWWTPS_emission_load',
+  'dbo.VL_UWWTPS.csv'              : 'UWWTPS',
 
-  fa una serie d'operacions definides a "operacions.md"
-  i guarda la base de dades resultant en un fitxer ".sqlite" per poder-lo manipular posteriorment amb sqlite3(1)
+  fa una serie d'operacions definides a "operacions.md" i guarda la base de
+  dades resultant en un fitxer ".sqlite" per poder-lo manipular posteriorment
+  amb sqlite3(1)
 '''
 import csv
 import os
 import sqlite3
-import sys
 
-#new sqlite file and new cursor to execute queries
+#new sqlite file, new cursor to execute queries
 db=sqlite3.connect("waterbase.sqlite");
-c=db.cursor()
+c=db.cursor();
 
 #create 5 new empty tables in sql
 def create_table_structure():
-  #T_Agglomerations
+  #Agglomerations
   '''
     Table contains information on agglomerations with generated load ≥ 2000 P.E.,
     including names, coordinates, generated load and information whether the load
@@ -36,16 +36,10 @@ def create_table_structure():
     table T_BigCity. Fields aggState, aggChanges, aggMethodC1, aggMethodC2 and
     aggMethodWithoutTreatment are related to the field lovID in the codelist
     table T_LOV.
-
-    aggID, aggCode, aggName, aggBeginLife, aggCalculation, aggChanges,
-    aggChangesComment, aggEndLife, aggGenerated, aggLatitude, aggLongitude,
-    aggC1, aggMethodC1, aggC2, aggMethodC2, aggNUTS, aggMethodWithoutTreatment,
-    aggPercWithoutTreatment, aggState, bigCityID, rptMStateKey,
-    ReportNetEnvelopeFileId
   '''
-  c.execute('DROP TABLE IF EXISTS T_Agglomerations')
-  c.execute('''CREATE TABLE T_Agglomerations (
-    aggID                     Long integer,
+  c.execute('DROP TABLE IF EXISTS Agglomerations')
+  c.execute('''CREATE TABLE Agglomerations (
+    aggAgglomorationsID       Long integer,
     aggCode                   Text(32),
     aggName                   Text(255),
     aggBeginLife              Date,
@@ -66,10 +60,12 @@ def create_table_structure():
     aggState                  Integer,
     bigCityID                 Long integer,
     rptMStateKey              Text(2),
-    ReportNetEnvelopeFileId   Long integer)'''
-  )
+    ReportNetEnvelopeFileId   Long integer
+  )''');
 
-  #T_DischargePoints
+  #---------------------------------------------------------
+
+  #DischargePoints
   '''
     Table contains information on individual points of discharge from treatment
     plants or collecting systems, localisation of discharge, link to specific
@@ -83,19 +79,10 @@ def create_table_structure():
     codelist table T_NUTS. Fields dcpState, dcpWaterBodyType,
     dcpTypeOfReceivingArea, dcpSurfaceWaters, dcpNotAffect, dcpMSProvide and
     dcpCOMAccept are related to the field lovID in the codelist table T_LOV.
-
-    dcpID, dcpState, rptMStateKey, uwwCode, dcpCode, dcpName, dcpNuts,
-    dcpLatitude, dcpLongitude, dcpWaterBodyType, dcpIrrigation,
-    dcpTypeOfReceivingArea, rcaCode, dcpSurfaceWaters, dcpWaterbodyID,
-    dcpNotAffect, dcpMSProvide, dcpCOMAccept, dcpGroundWater, dcpReceivingWater,
-    dcpWFDSubUnit, dcpWFDRBD, dcpRemarks, dcpWFDRBDReferenceDate,
-    dcpWaterBodyReferenceDate, dcpGroundWaterReferenceDate,
-    dcpReceivingWaterReferenceDate, dcpWFDSubUnitReferenceDate,
-    ReportNetEnvelopeFileId, dcpBeginLife, dcpEndLife
   '''
-  c.execute('DROP TABLE IF EXISTS T_DischargePoints')
-  c.execute('''CREATE TABLE T_DischargePoints (
-    dcpID                           Long integer,
+  c.execute('DROP TABLE IF EXISTS DischargePoints')
+  c.execute('''CREATE TABLE DischargePoints (
+    dcpDischargePointsID            Long integer,
     dcpState                        Integer,
     rptMStateKey                    Text(2),
     uwwCode                         Long integer,
@@ -125,10 +112,10 @@ def create_table_structure():
     dcpWFDSubUnitReferenceDate      Date,
     ReportNetEnvelopeFileId         Long integer,
     dcpBeginLife                    Date,
-    dcpEndLife                      Date)'''
-  )
+    dcpEndLife                      Date
+  )''');
 
-  #T_UWWTP_Agglo
+  #UWWTPAgglos
   '''
     Table is a connection table combining data on agglomeration and urban waste
     water treatment plants allowing repoting of situations where the ratio
@@ -139,14 +126,10 @@ def create_table_structure():
     Fields aucAggCode and aucAggName are related to the fields aggCode and
     aggName in the table T_Agglomerations. Field aucMethodPercEnteringUWWTP is
     related to the field lovID in the codelist table T_LOV.
-
-    aucID, rptMStateKey, aucUwwCode, aucUwwName, aggID, aucAggCode, aucAggName,
-    aucPercEnteringUWWTP, aucMethodPercEnteringUWWTP, aucPercC2T,
-    ReportNetEnvelopeFileId
   '''
-  c.execute('DROP TABLE IF EXISTS T_UWWTP_Agglo')
-  c.execute('''CREATE TABLE T_UWWTP_Agglo (
-    aucID                       Long integer,
+  c.execute('DROP TABLE IF EXISTS UWWTPAgglos')
+  c.execute('''CREATE TABLE UWWTPAgglos (
+    aucUWWTP_AggloID            Long integer,
     rptMStateKey                Text(2),
     aucUwwCode                  Text(32),
     aucUwwName                  Text(255),
@@ -156,10 +139,10 @@ def create_table_structure():
     aucPercEnteringUWWTP        Decimal,
     aucMethodPercEnteringUWWTP  Integer,
     aucPercC2T                  Decimal,
-    ReportNetEnvelopeFileId     Long integer)'''
-  )
+    ReportNetEnvelopeFileId     Long integer
+  )''');
 
-  #T_UWWTPs
+  #UWWTPS
   '''
     Table includes data on individual waste water treatment plants and
     collecting systems without UWWTP, their localisation, capacity and actual
@@ -178,8 +161,8 @@ def create_table_structure():
     uwwOther, uwwSpecification, uwwBOD5Perf, uwwCODPerf, uwwTSSPerf, uwwNTotPerf,
     uwwPTotPerf, uwwOtherPerf, uwwBeginLife, uwwEndLife, ReportNetEnvelopeFileId
   '''
-  c.execute('DROP TABLE IF EXISTS T_UWWTPs')
-  c.execute('''CREATE TABLE T_UWWTPs (
+  c.execute('DROP TABLE IF EXISTS UWWTPS')
+  c.execute('''CREATE TABLE UWWTPS (
     uwwState                Integer,
     rptMStateKey            Text(2),
     aggCode                 Long integer,
@@ -214,9 +197,9 @@ def create_table_structure():
     uwwBeginLife            Date,
     uwwEndLife              Date,
     ReportNetEnvelopeFileId Long integer)'''
-  )
+  );
 
-  #T_UWWTPs_emission_load
+  #UWWTPS_emission_load
   '''
     Table contains additional data on incoming and discharged loads of organic
     matter and nutrients, provided by some Member States beyond the scope of
@@ -230,8 +213,8 @@ def create_table_structure():
     uwwNIncoming, uwwPIncoming, uwwBODDischarge, uwwCODDischarge, uwwNDischarge,
     uwwPDischarge, QAflag, Remark
   '''
-  c.execute('DROP TABLE IF EXISTS T_UWWTPs_emission_load')
-  c.execute('''CREATE TABLE T_UWWTPs_emission_load (
+  c.execute('DROP TABLE IF EXISTS UWWTPS_emission_load')
+  c.execute('''CREATE TABLE UWWTPS_emission_load (
     uwwState        Integer,
     rptMStateKey    Text(2),
     uwwCode         Text(32),
@@ -246,30 +229,30 @@ def create_table_structure():
     uwwPDischarge   Decimal,
     QAflag          Text(1),
     Remark          Text(255))'''
-  )
+  );
 
-create_table_structure()
+create_table_structure();
 
-#csv filenames -> sql tablenames
+#fill sql tables with csv info
 os.chdir('waterbase_UWWTD_v6_csv') #go to folder
 csv_filenames={
-  'T_Agglomerations.csv'      : 'T_Agglomerations',
-  'T_DischargePoints.csv'     : 'T_DischargePoints',
-  'T_UWWTPAgglos.csv'         : 'T_UWWTP_Agglo',
-  'T_UWWTPS_emission_load.csv': 'T_UWWTPs_emission_load',
-  'T_UWWTPs.csv'              : 'T_UWWTPs',
+  'dbo.VL_Agglomerations.csv'      : 'Agglomerations',
+  'dbo.VLS_DischargePoints.csv'    : 'DischargePoints',
+  'dbo.VL_UWWTPAgglos.csv'         : 'UWWTPAgglos',
+  'dbo.V_UWWTPS_emission_load.csv' : 'UWWTPS_emission_load',
+  'dbo.VL_UWWTPS.csv'              : 'UWWTPS',
 }
 
 #iterate csv filenames
 for csv_filename, sql_tablename in csv_filenames.items():
   with open(csv_filename,'r',encoding='utf-8') as csv_file:
-    print("Importing %s... "%csv_filename, end='')
+    print("Importing %s... " % csv_filename, end='')
     reader     = csv.DictReader(csv_file)            #object, csv reader
     fieldnames = tuple(reader.fieldnames)            #tuple,  column names
     keys       = ",".join(fieldnames)                #string, column names
     quest_mks  = ','.join(list('?'*len(fieldnames))) #string, question marks
 
-    #iterate csv
+    #iterate csv rows
     for row in reader:
       values = tuple(row.values())
       c.execute('INSERT INTO '+sql_tablename+' ('+keys+') VALUES ('+quest_mks+')', values)
@@ -280,5 +263,3 @@ for csv_filename, sql_tablename in csv_filenames.items():
 
     #save changes
     db.commit()
-
-print()#print a newline
