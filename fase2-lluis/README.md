@@ -6,18 +6,18 @@ __Objectiu__: processar 5 taules (arxius CSV grans descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-__permalink versió waterbase utilitzada__:
-https://www.eea.europa.eu/ds_resolveuid/8396aa5079544dab9d8b8966237a9f3b
+__permalink versió waterbase utilitzada__: https://www.eea.europa.eu/ds_resolveuid/8396aa5079544dab9d8b8966237a9f3b
 
-__permalink última versió waterbase__:
-https://www.eea.europa.eu/ds_resolveuid/DAT-106-en
+__permalink última versió waterbase__: https://www.eea.europa.eu/ds_resolveuid/DAT-106-en
 
 __arxius que ens interessen del waterbase__:
-  - dbo.VL_Agglomerations.csv       : aglomeracions
-  - dbo.VLS_DischargePoints.csv     : punts de descàrrega
-  - dbo.VL_UWWTPAgglos.csv          : info aglomeracions - depuradores
-  - dbo.VL_UWWTPS.csv               : depuradores
-  - dbo.V_UWWTPS_emission_load.csv  : emissions depuradores
+<table>
+  <tr><td>dbo.VL_Agglomerations.csv       <td>aglomeracions
+  <tr><td>dbo.VLS_DischargePoints.csv     <td>punts de descàrrega
+  <tr><td>dbo.VL_UWWTPAgglos.csv          <td>info aglomeracions - depuradores
+  <tr><td>dbo.VL_UWWTPS.csv               <td>depuradores
+  <tr><td>dbo.V_UWWTPS_emission_load.csv  <td>emissions depuradores
+</table>
 
 ## Requeriments
 - python >= v3.7 (important per mantenir ordre columnes, per sota v3.7 no funcionarà)
