@@ -6,8 +6,11 @@ __Objectiu__: processar 5 taules (arxius CSV grans descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-__permalink versió waterbase utilitzada__: https://www.eea.europa.eu/ds_resolveuid/8396aa5079544dab9d8b8966237a9f3b
-__permalink última versió waterbase__:     https://www.eea.europa.eu/ds_resolveuid/DAT-106-en
+__permalink versió waterbase utilitzada__:
+https://www.eea.europa.eu/ds_resolveuid/8396aa5079544dab9d8b8966237a9f3b
+
+__permalink última versió waterbase__:
+https://www.eea.europa.eu/ds_resolveuid/DAT-106-en
 
 __arxius que ens interessen del waterbase__:
   - dbo.VL_Agglomerations.csv       : aglomeracions
