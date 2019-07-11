@@ -16,7 +16,7 @@ AGLOMERACIONS
   2. no hi pot haver buits a longitud i latitud
   "SELECT * FROM T_Agglomerations WHERE aggLatitude='' OR aggLongitude='';"
   n'hi ha 11
- 
+
   3. que la geolocalització es correspongui amb el país
 
 
@@ -32,11 +32,11 @@ DEPURADORES
   n'hi ha unes 2500 aprox
   posar la mateixa geolocalització de l'aglomeració
   (FER QUERY)
-  "SELECT aggLatitude,aggLongitude 
-   FROM T_Agglomerations 
-   WHERE aggCode = (SELECT aggCode 
-                    FROM T_UWWTPs 
-                    WHERE uwwLatitude='' AND uwwLongitude='' 
+  "SELECT aggLatitude,aggLongitude
+   FROM T_Agglomerations
+   WHERE aggCode = (SELECT aggCode
+                    FROM T_UWWTPs
+                    WHERE uwwLatitude='' AND uwwLongitude=''
                     LIMIT 1)"
 
    4. Tipus tractament. Comprovacions:
@@ -79,7 +79,7 @@ UWWTP-AGGLOs (relacional depuradora-aglomeració)
   rations AS a,T_UWWTP_Agglo AS ua WHERE a.aggCode=ua.aucAggCode;
 
   aggPercWithoutTreatment es C3
-  aucPercEnteringUWWTP, es C4 
+  aucPercEnteringUWWTP, es C4
   aucPercC2T, es C5
 
   llavors, a la taula aglomeracions:

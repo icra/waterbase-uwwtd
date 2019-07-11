@@ -1,18 +1,28 @@
-*status*: en desenvolupament (seguint passos arxiu 'operacions.docx.md')
+*status*: en desenvolupament (juliol 2019, seguint passos arxiu 'operacions.docx.md')
+
+__fase2__: seguir feina fase 1 anna, transformant gui php a fitxer python (+ ràpid)
 
 __Objectiu__: processar 5 taules (arxius CSV grans descarregats de
 https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5)
 per poder fer consultes SQL avançades des de diferents programes com ara GIS o R.
 
-__fase2__: seguir feina fase 1 anna, transformant gui php a fitxer python (+ ràpid)
+__permalink versió waterbase utilitzada__: https://www.eea.europa.eu/ds_resolveuid/8396aa5079544dab9d8b8966237a9f3b
+__permalink última versió waterbase __: https://www.eea.europa.eu/ds_resolveuid/DAT-106-en
+
+__arxius que ens interessen del waterbase__:
+  - dbo.VL_Agglomerations.csv       : aglomeracions
+  - dbo.VLS_DischargePoints.csv     : punts de descàrrega
+  - dbo.VL_UWWTPAgglos.csv          : info aglomeracions - depuradores
+  - dbo.VL_UWWTPS.csv               : depuradores
+  - dbo.V_UWWTPS_emission_load.csv  : emissions depuradores
 
 ## Requeriments
-- python3 >= 3.6 (important per mantenir ordre columnes, per sota v3.6 no funciona)
+- python >= v3.7 (important per mantenir ordre columnes, per sota v3.7 no funcionarà)
 - sqlite3
 
 ## Procediment
 Per generar l'arxiu SQL (base de dades) ```waterbase.sqlite``` que combina les 5 taules, executar en
-un terminal (bash) la següent comanda:
+un terminal (sh/bash/zsh...) la següent comanda:
 
 ```shell
   $ python3.7 import_csv_files.py

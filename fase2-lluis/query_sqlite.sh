@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Aquest script contindrà la comanda SQL per combinar totes les taules 
+# comanda SQL per combinar totes les taules
+# una vegada creat el fitxer 'waterbase.sqlite'
 
 taules=(
   'T_Agglomerations' \
@@ -16,7 +17,7 @@ taules=(
 # -csv   Set output mode to CSV (comma separated values).
 # -[no]header Turn headers on or off.
 opcions="-line"
-sqlite="sqlite3 $opcions waterbase_UWWTD_v6.sqlite"
+sqlite="sqlite3 $opcions waterbase.sqlite"
 
 for taula in ${taules[@]};do
   echo $taula
