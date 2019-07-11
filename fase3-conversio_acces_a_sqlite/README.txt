@@ -1,4 +1,15 @@
+EXPORTACIÓ DE MDB A SQLITE
+==========================
+
+fent servir les eines de mdbtools:
+  - mdb-tables(1)
+  - mdb-schema(1)
+  - mdb-export(1)
+
+veure script 'converteix_mdb_a_sql.sh'
+
 RESULTATS EXPORTACIÓ
+====================
 
 >> [mdb]    taula T_UWWTPS: 30451 files
 >> [sqlite] taula T_UWWTPS: 30437 files
