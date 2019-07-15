@@ -32,5 +32,4 @@ for taula in ${taules[@]}; do
   echo ">> [sqlite] taula $taula: $files files ";
 done
 
-#conciliació dades
-#TODO
+#reconciliació dades
