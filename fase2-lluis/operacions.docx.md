@@ -3,41 +3,66 @@
 LLISTA TASQUES A CONVERTIR A CODI
 =================================
 
-per arreglar problemes dades csvs descarregats una vegada convertits a SQL
-
-llista bounding boxes coordenades countries; https://gist.github.com/graydon/11198540
-comprovar que siguin ETRS89
-
 AGLOMERACIONS
 -------------
-  1. eliminar aglomeracions duplicades (aggCode)
-  "SELECT * FROM T_Agglomerations GROUP BY aggCode HAVING COUNT(aggCode)>1"
+  1. [OK] trobar duplicades (aggCode)
+     "SELECT * FROM T_Agglomerations GROUP BY aggCode HAVING COUNT(aggCode)>1"
 
-  2. no hi pot haver buits a longitud i latitud
-  "SELECT * FROM T_Agglomerations WHERE aggLatitude='' OR aggLongitude='';"
-  n'hi ha 11
+     * no n'hi ha
 
-  3. que la geolocalització es correspongui amb el país
+  2. [OK] no hi pot haver buits a longitud i latitud
+     SELECT aggName,aggLongitude,aggLatitude 
+     FROM   T_Agglomerations
+     WHERE  aggLongitude is NULL
+     OR     aggLatitude  is NULL;
 
+     * n'hi ha 11:
+      Gundelsheim-Höchstberg-Tiefenbach
+      Gundelsheim-Obergriesheim
+      Crailsheim-Onolzheim
+      Jagstzell
+      Riesbürg-Pflaumloch
+      Seckach
+      Waldbrunn-Strümpfelbrunn
+      Oberes Rinschbachtal,Osterburken-Bofsheim
+      Mühlacker-Mühlhausen
+      Gutsbezirk Münsingen-Böttental
+      Münsingen-Gundelfingen
+
+  3. [  ] que la geolocalització es correspongui amb el país llista bounding boxes
+    - coordenades countries; https://gist.github.com/graydon/11198540
+    - comprovar que siguin ETRS89
 
 DEPURADORES
 -----------
-  1. eliminar duplicades (uwwCode)
-  "SELECT * FROM T_UWWTPs GROUP BY uwwCode HAVING COUNT(uwwCode)>1"
+  1. [OK] trobar duplicades (uwwCode)
+    - "SELECT * FROM T_UWWTPs GROUP BY uwwCode HAVING COUNT(uwwCode)>1"
+    - n'hi ha 2:
+      1289677|1|IT||IT13Q13000000015|ROCCA_DI_CAMBIO|ISCON|||42.2381889018|13.4983916337|ITF11|2917|1500||1|0|0|0|0|1|0|0|0|0||P|P|P||||||27565
+      1289987|1|IT||IT13Q13000000015|ROCCA_DI_CAMBIO|ISCON|||376103.823054|4677314.11236|ITF11|2917|1500||1|0|0|0|0|1|0|0|0|0||P|P|P||||||27565
+      1289883|1|IT||IT16Q150000002|CHIATONA|ISCON|||40.5234|17.0485|ITF43|0|8000|0|1|0|1|1|1|1|0|1|0|0|||||NR|NR|NR|||27565
+      1289988|1|IT||IT16Q150000002|CHIATONA|ISCON|||40.5234|17.0485|ITF43|0|8000|0|1|0|1|1|1|1|0|1|0|0||NA|NA|NA|NR|NR|NR|||27565
 
-  2. que la geolocalització es correspongui amb el país
+  2. [  ] que la geolocalització es correspongui amb el país
 
-  3. no hi pot haver buits a longitud i latitud
-  "SELECT * FROM T_UWWTPs WHERE uwwLatitude='' OR uwwLongitude='';"
-  n'hi ha unes 2500 aprox
-  posar la mateixa geolocalització de l'aglomeració
-  (FER QUERY)
-  "SELECT aggLatitude,aggLongitude
-   FROM T_Agglomerations
-   WHERE aggCode = (SELECT aggCode
-                    FROM T_UWWTPs
-                    WHERE uwwLatitude='' AND uwwLongitude=''
-                    LIMIT 1)"
+  3. troba buits a longitud i latitud
+    - "SELECT * FROM T_UWWTPs WHERE uwwLatitude='' OR uwwLongitude='';"
+    - n'hi ha 2569
+    - posar la mateixa geolocalització de l'aglomeració
+
+    SELECT 
+      u.uwwName,
+      u.uwwCode,
+      a.aggName
+    FROM 
+      T_UWWTPS         as u,
+      T_Agglomerations as a
+    WHERE 
+      (u.uwwLatitude is NULL 
+      OR 
+      u.uwwLongitude is NULL)
+    AND
+      a.aggCode = u.aggCode;
 
    4. Tipus tractament. Comprovacions:
     si uwwprimarytreatment == ""  => "No Treatment"
