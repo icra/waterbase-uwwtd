@@ -1,0 +1,31 @@
+PROBLEMES TROBATS A 'Waterbase_UWWTD_v6_20171207.mdb.sqlite'
+============================================================
+
+> AGLOMERACIONS 'T_Agglomerations': 27848
+>> Aglomeracions duplicades 'COUNT(aggCode)>1': 0
+>> Aglomeracions on 'aggLatitude' o 'aggLongitude' són NULL: 11
+
+> DEPURADORES 'T_UWWTPS': 30451
+>> Depuradores duplicades 'COUNT(uwwCode)>1': 2
+>> Depuradores on 'uwwLatitude' o 'uwwLongitude' són NULL: 2569
+
+> EMISSIONS DEPURADORES 'T_UWWTPS_emission_load': 30446
+>> Emissions amb 'uwwCode' duplicat: 2
+>> Emissions on 'uwwCode' és NULL: 0
+>> Emissions on 'uwwCode' no existeix a T_UWWTPS: 0
+
+> CONNEXIONS AGLOMERACIÓ-DEPURADORA 'T_UWWTPAgglos': 28382
+>> Connexions on 'uwwCode' és NULL: 10
+>> Connexions on 'uwwCode' no existeix a T_UWWTPS: 13
+>> Connexions on 'aggCode' és NULL: 10
+>> Connexions on 'aggCode' no existeix a T_Agglomerations: 331
+>> Depuradores sense connexió 'uwwCode not in T_UWWTPAgglos': 0
+>> Aglomeracions sense connexió 'aggCode not in T_UWWTPAgglos': 0
+
+> DISCHARGE POINTS 'T_DischargePoints': 30031
+>> Discharge points duplicats ('dcpCode'): 16
+>> Discharge points on 'dcpLatitude' o 'dcpLongitude' són NULL: 45
+>> Discharge points on 'uwwCode' és NULL: 0
+>> Discharge points on 'uwwCode' no existeix a la taula 'T_UWWTPS': 11
+>> Depuradores sense discharge points: 1521
+>> Depuradores amb múltiples discharge points: 803
