@@ -1,70 +1,23 @@
-(document Dante word passat a markdown):
-
 LLISTA TASQUES A CONVERTIR A CODI
-=================================
+---------------------------------
 
-AGLOMERACIONS
--------------
-  1. [OK] trobar duplicades (aggCode)
-     "SELECT * FROM T_Agglomerations GROUP BY aggCode HAVING COUNT(aggCode)>1"
-
-     * no n'hi ha
-
-  2. [OK] no hi pot haver buits a longitud i latitud
-     SELECT aggName,aggLongitude,aggLatitude 
-     FROM   T_Agglomerations
-     WHERE  aggLongitude is NULL
-     OR     aggLatitude  is NULL;
-
-     * n'hi ha 11:
-      Gundelsheim-Höchstberg-Tiefenbach
-      Gundelsheim-Obergriesheim
-      Crailsheim-Onolzheim
-      Jagstzell
-      Riesbürg-Pflaumloch
-      Seckach
-      Waldbrunn-Strümpfelbrunn
-      Oberes Rinschbachtal,Osterburken-Bofsheim
-      Mühlacker-Mühlhausen
-      Gutsbezirk Münsingen-Böttental
-      Münsingen-Gundelfingen
-
-  3. [  ] que la geolocalització es correspongui amb el país llista bounding boxes
+PUNTS DE DESCÀRREGA + AGLOMERACIONS + DEPURADORES
+-------------------------------------------------
+  - mirar si per cada aglomeració - depuradora - punt de descàrrega estan més
+    lluny de 50 km
+  - si falla la comprovació de 50km entre aglomeracio depuradora i punt de descàrrega:
+  - [  ] geolocalització es correspongui amb el país
+    - llista bounding boxes (?)
     - coordenades countries; https://gist.github.com/graydon/11198540
-    - comprovar que siguin ETRS89
+    - comprovar que siguin ETRS89 (?)
+    - buscar mètode per trobar distància entre 2 coordenades
 
 DEPURADORES
 -----------
-  1. [OK] trobar duplicades (uwwCode)
-    - "SELECT * FROM T_UWWTPs GROUP BY uwwCode HAVING COUNT(uwwCode)>1"
-    - n'hi ha 2:
-      1289677|1|IT||IT13Q13000000015|ROCCA_DI_CAMBIO|ISCON|||42.2381889018|13.4983916337|ITF11|2917|1500||1|0|0|0|0|1|0|0|0|0||P|P|P||||||27565
-      1289987|1|IT||IT13Q13000000015|ROCCA_DI_CAMBIO|ISCON|||376103.823054|4677314.11236|ITF11|2917|1500||1|0|0|0|0|1|0|0|0|0||P|P|P||||||27565
-      1289883|1|IT||IT16Q150000002|CHIATONA|ISCON|||40.5234|17.0485|ITF43|0|8000|0|1|0|1|1|1|1|0|1|0|0|||||NR|NR|NR|||27565
-      1289988|1|IT||IT16Q150000002|CHIATONA|ISCON|||40.5234|17.0485|ITF43|0|8000|0|1|0|1|1|1|1|0|1|0|0||NA|NA|NA|NR|NR|NR|||27565
-
-  2. [  ] que la geolocalització es correspongui amb el país
-
-  3. troba buits a longitud i latitud
-    - "SELECT * FROM T_UWWTPs WHERE uwwLatitude='' OR uwwLongitude='';"
-    - n'hi ha 2569
-    - posar la mateixa geolocalització de l'aglomeració
-
-    SELECT 
-      u.uwwName,
-      u.uwwCode,
-      a.aggName
-    FROM 
-      T_UWWTPS         as u,
-      T_Agglomerations as a
-    WHERE 
-      (u.uwwLatitude is NULL 
-      OR 
-      u.uwwLongitude is NULL)
-    AND
-      a.aggCode = u.aggCode;
-
-   4. Tipus tractament. Comprovacions:
+  - [  ] que la geolocalització es correspongui amb el país
+  - [no cal] Tipus tractament. Comprovacions:
+    - afegir una columna amb el nom "uwwTypeofTreatment"
+    crear string "PrSTNP"
     si uwwprimarytreatment == ""  => "No Treatment"
     if uwwprimarytreatment        => "Pr"
     if uwwsecondarytreatment      => "S"
@@ -73,30 +26,23 @@ DEPURADORES
     if uwwNremoval                => "N"
     if uwwPremoval                => "P"
 
-    afegir una columna amb el nom "uwwTypeofTreatment"
-    crear string "PrSTNP"
-
-   5. buscar depuradores que no tenen discharge points crear
+  - [TODO] buscar depuradores que no tenen discharge points crear
    un discharge point amb les coordenades de la depuradora a
    la id hi posem la mateixa que la depuradora "xxx", per
    exemple: "xxx-discharge-point"
 
 EMISSION LOADS (EXTENSIO DEPURADORES)
 -------------------------------------
-  1. Comprovar que no hi hagi duplicats a uwwCode.
-  sqlite> SELECT * FROM T_UWWTPs_emission_load GROUP BY uwwCode HAVING COUNT(uwwCode)>1;
-
+  - [TODO] buscar duplicats a uwwCode.
+  SELECT * FROM T_UWWTPs_emission_load GROUP BY uwwCode HAVING COUNT(uwwCode)>1;
 
 PUNTS DE DESCÀRREGA
 -------------------
-  1. comprovar camps repetits
-  "SELECT * FROM T_DischargePoints GROUP BY dcpID HAVING COUNT(dcpID)>1"
-
-  2. si hi ha més d'un punt de descàrrega, selecciona el més proper a la coordenada de la depuradora.
-  "SELECT uwwCode FROM T_DischargePoints GROUP BY uwwCode HAVING COUNT(uwwCode)>1"
+  - si hi ha més d'un punt de descàrrega, selecciona el més proper a la
+  coordenada de la depuradora. 
 
 UWWTP-AGGLOs (relacional depuradora-aglomeració)
-------------
+------------------------------------------------
   1. buscar duplicats amb aucID
 
   2. comprovació percentatge PE == 100%
@@ -133,10 +79,6 @@ UWWTP-AGGLOs (relacional depuradora-aglomeració)
 
   després de comprovar, tornar a mirar si sumen 100%
 
-  s'ha de crear un punt de descàrrega per cada aglomeració que correspon a open defecation (que es pot fer servir o no)
-  "punts que no van a depuradora"
-
-PUNTS DE DESCÀRREGA + AGLOMERACIONS + DEPURADORES
--------------------------------------------------
-  1. mirar si per cada aglomeració - depuradora - punt de
-  descàrrega estan més lluny de 50 km
+  s'ha de crear un punt de descàrrega per cada aglomeració que correspon a
+  open defecation (que es pot fer servir o no) "punts que no van a
+  depuradora"
