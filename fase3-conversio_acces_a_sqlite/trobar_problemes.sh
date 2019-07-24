@@ -22,6 +22,7 @@ echo "============================================================";
     query '.schema T_UWWTPAgglos';          # connexions aglomeració-depuradora
     query '.schema T_DischargePoints';      # punts de descàrrega depuradores
   }
+  veure_schemas
 
 # TROBAR PROBLEMES
 
@@ -65,6 +66,9 @@ echo "============================================================";
       uwwLongitude is NULL
   ' --count);
   echo ">> Depuradores on 'uwwLatitude' o 'uwwLongitude' són NULL: $n"
+
+  #depuradores sense coordenades
+  #query 'SELECT rptMStateKey,uwwName FROM T_UWWTPS WHERE uwwLatitude is NULL OR uwwLongitude';
 
 # UWWTP EMISSION LOAD
   n=$(query 'SELECT * FROM T_UWWTPS_emission_load' --count)

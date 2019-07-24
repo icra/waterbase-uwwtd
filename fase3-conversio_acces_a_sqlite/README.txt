@@ -1,3 +1,8 @@
+
+CONNEXIÓ DE SQLITE AMB C
+========================
+http://zetcode.com/db/sqlitec/
+
 EXPORTACIÓ DE MDB A SQLITE
 ==========================
 
