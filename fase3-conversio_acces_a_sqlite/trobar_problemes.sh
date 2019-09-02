@@ -4,26 +4,31 @@
 echo "PROBLEMES TROBATS A 'Waterbase_UWWTD_v6_20171207.mdb.sqlite'";
 echo "============================================================";
 
-# funcions útils
-  # funció query sqlite
-  function query(){
-    if [[ $2 == "--count" ]]; then
-      echo "$1" | sqlite3 Waterbase_UWWTD_v6_20171207.mdb.sqlite | wc -l | awk '{print $1}'
-    else
-      opcions="-csv"
-      echo "$1" | sqlite3 $opcions Waterbase_UWWTD_v6_20171207.mdb.sqlite
-    fi
-  }
-  # funció veure estructura de les taules (columnes)
-  function veure_schemas(){
-    query '.schema T_Agglomerations';       # aglomeracions
-    query '.schema T_UWWTPS';               # depuradores
-    query '.schema T_UWWTPS_emission_load'; # emissions depuradores
-    query '.schema T_UWWTPAgglos';          # connexions aglomeració-depuradora
-    query '.schema T_DischargePoints';      # punts de descàrrega depuradores
-  }
-  #veure_schemas
+#ruta fitxer base de dades
+db="./1-exportacio_mdb_a_sql/Waterbase_UWWTD_v6_20171207.mdb.sqlite";
 
+#########
+# UTILS #
+#########
+
+# query sqlite
+function query(){
+  if [[ $2 == "--count" ]]; then
+    echo "$1" | sqlite3 $db | wc -l | awk '{print $1}'
+  else
+    opcions="-csv"
+    echo "$1" | sqlite3 $opcions $db
+  fi
+}
+
+# veure estructura taules (columnes)
+function veure_schemas(){
+  query '.schema T_Agglomerations';       # aglomeracions
+  query '.schema T_UWWTPS';               # depuradores
+  query '.schema T_UWWTPS_emission_load'; # emissions depuradores
+  query '.schema T_UWWTPAgglos';          # connexions aglomeració-depuradora
+  query '.schema T_DischargePoints';      # punts de descàrrega depuradores
+}
 
 ####################
 # BUSCAR PROBLEMES #
@@ -33,13 +38,13 @@ echo "============================================================";
   n=$(query 'SELECT 1 FROM T_Agglomerations' --count)
   echo;echo "> AGLOMERACIONS 'T_Agglomerations': $n"
 
-  # busca aglomeracions duplicades
+  # aglomeracions duplicades
   n=$(
     query 'SELECT * FROM T_Agglomerations GROUP BY aggCode HAVING COUNT(aggCode)>1;' --count
   );
   echo ">> Aglomeracions duplicades 'COUNT(aggCode)>1': $n"
 
-  # busca aglomeracions amb longitud o latitud NULL
+  # aglomeracions amb longitud o latitud NULL
   n=$(
     query 'SELECT * FROM T_Agglomerations WHERE aggLongitude is NULL OR aggLatitude is NULL' --count
   );
@@ -49,13 +54,13 @@ echo "============================================================";
   n=$(query 'SELECT * FROM T_UWWTPS' --count)
   echo;echo "> DEPURADORES 'T_UWWTPS': $n"
 
-  # busca depuradores duplicades
+  # depuradores duplicades
   n=$(
     query 'SELECT * FROM T_UWWTPs GROUP BY uwwCode HAVING COUNT(uwwCode)>1;' --count
   );
   echo ">> Depuradores duplicades 'COUNT(uwwCode)>1': $n";
 
-  # busca depuradores sense latitud o longitud
+  # depuradores sense latitud o longitud
   n=$(
     query 'SELECT * FROM T_UWWTPS WHERE uwwLatitude is NULL OR uwwLongitude is NULL' --count
   );

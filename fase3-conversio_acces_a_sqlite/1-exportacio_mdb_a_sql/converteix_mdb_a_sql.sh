@@ -1,17 +1,17 @@
 #!/bin/bash
 #exporta les taules que ens interessen del fitxer acces mdb a un fitxer sqlite
 
-mdb="Waterbase_UWWTD_v6_20171207.mdb"; #mdb file ms acces
+mdb="Waterbase_UWWTD_v6_20171207.mdb"; #ruta arxiu mdb (ms acces)
 taules=("T_UWWTPS" "T_Agglomerations" "T_UWWTPAgglos" "T_DischargePoints" "T_UWWTPS_emission_load")
 
 #exporta de mdb
 for taula in ${taules[@]}; do
-  echo -n "Exportant $taula de Access (mdb) a SQL..."
-  mdb-schema --drop-table $mdb sqlite --table $taula > $taula.schema.sql; #estructura
-  mdb-export -I sqlite $mdb $taula > $taula.sql;                          #dades
+  echo -n "Exportant $taula d'Access (mdb) a SQL..."
+  mdb-schema --drop-table $mdb sqlite --table $taula > $taula.schema.sql; #schema taula
+  mdb-export -I sqlite $mdb $taula > $taula.sql;                          #dades taula
 done
 
-#compta nombre de files
+#compta files de cada taula
 for taula in ${taules[@]}; do
   files=$(wc -l $taula.sql | awk '{print $1}'); #nombre de files
   echo ">> [mdb] taula $taula: $files files ";
@@ -25,7 +25,7 @@ for taula in ${taules[@]}; do
   echo "Fet"
 done
 
-#compta files a cada taula
+#compta files de cada taula
 for taula in ${taules[@]}; do
   sql="SELECT COUNT(*) FROM $taula;"
   files=$(echo "$sql" | sqlite3 $mdb.sqlite);
