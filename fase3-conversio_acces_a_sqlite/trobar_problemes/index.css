@@ -1,0 +1,41 @@
+main{
+  display:grid;
+  grid-template-columns:30% 70%;
+  grid-gap:5px;
+}
+hr{
+  border:none;
+  border-bottom:1px solid #ccc;
+}
+ul {
+  padding-inline-start:20px;
+}
+table{
+  border-collapse:collapse;
+}
+th{
+  background:#eee;
+}
+.problem{
+  margin-bottom:10px;
+}
+
+h2, ul#problems li.table h3{
+  background:black;
+  color:white;
+}
+td.sql {
+  background:azure;
+  font-family:monospace;
+}
+td.blank {
+  font-family:monospace;
+  font-style:italic;
+}
+
+/* fold / unfold sections */
+#T_Agglomerations      {display:;}
+#T_UWWTPS              {display:;}
+#T_DischargePoints     {display:;}
+#T_UWWTPS_emission_load{display:;}
+#T_UWWTPAgglos         {display:;}
