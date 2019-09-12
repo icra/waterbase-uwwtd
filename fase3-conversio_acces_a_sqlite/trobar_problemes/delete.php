@@ -9,7 +9,7 @@ $taula = SQLite3::escapeString($_GET['taula']);
 $idNom = SQLite3::escapeString($_GET['idNom']);
 $idVal = SQLite3::escapeString($_GET['idVal']);
 
-//update
+//query
 $sql="DELETE FROM $taula WHERE $idNom='$idVal'";
 $db->exec($sql) or die(print_r($db->errorInfo(), true));
 

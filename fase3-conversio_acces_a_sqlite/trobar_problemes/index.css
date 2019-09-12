@@ -1,13 +1,19 @@
 main{
   display:grid;
   grid-template-columns:30% 70%;
-  grid-gap:5px;
+}
+div#index {
+  position:sticky;
+  top:0;
+}
+div#index_container{
+  background:azure;
 }
 hr{
   border:none;
   border-bottom:1px solid #ccc;
 }
-ul {
+ul{
   padding-inline-start:20px;
 }
 table{
@@ -19,9 +25,23 @@ th{
 .problem{
   margin-bottom:10px;
 }
-
-h2, ul#problems li.table h3{
+.flex{
+  display:flex;
+  flex-wrap:wrap;
+}
+span.n_pro{
+  background:red;
+  display:inline-block;
+  width:50px;
+  text-align:center;
+  border-radius:3px;
+  color:white;
+}
+h2, ul#problems h3{
   background:black;
+  color:white;
+}
+ul#problems h3 a, ul#problems h3 a:visited{
   color:white;
 }
 td.sql {
@@ -30,12 +50,15 @@ td.sql {
 }
 td.blank {
   font-family:monospace;
-  font-style:italic;
+  color:#666;
+}
+td.blank:before {
+  content:'~no problems found';
 }
 
-/* fold / unfold sections */
-#T_Agglomerations      {display:;}
-#T_UWWTPS              {display:;}
-#T_DischargePoints     {display:;}
-#T_UWWTPS_emission_load{display:;}
-#T_UWWTPAgglos         {display:;}
+/* quickly fold / unfold sections */
+#T_Agglomerations       > ul{display:;}
+#T_UWWTPS               > ul{display:;}
+#T_DischargePoints      > ul{display:;}
+#T_UWWTPS_emission_load > ul{display:;}
+#T_UWWTPAgglos          > ul{display:;}

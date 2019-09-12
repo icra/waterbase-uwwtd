@@ -69,6 +69,46 @@ function veure_schemas(){
   #depuradores sense coordenades
   #query 'SELECT rptMStateKey,uwwName FROM T_UWWTPS WHERE uwwLatitude is NULL OR uwwLongitude';
 
+# DISCHARGE POINTS
+  n=$(query 'SELECT 1 FROM T_DischargePoints' --count);
+  echo;echo "> DISCHARGE POINTS 'T_DischargePoints': $n"
+
+  # discharge points duplicats
+  n=$(
+    query 'SELECT * FROM T_DischargePoints GROUP BY dcpCode HAVING COUNT(dcpCode)>1' --count
+  );
+  echo ">> Discharge points duplicats ('dcpCode'): $n";
+
+  # discharge points sense latitud o longitud
+  n=$(
+    query 'SELECT * FROM T_DischargePoints WHERE dcpLatitude is NULL OR dcpLongitude is NULL' --count
+  );
+  echo ">> Discharge points on 'dcpLatitude' o 'dcpLongitude' són NULL: $n"
+
+  # dps sense depuradora
+  n=$(
+    query 'SELECT * FROM T_DischargePoints WHERE uwwCode is NULL' --count
+  );
+  echo ">> Discharge points on 'uwwCode' és NULL: $n"
+
+  # dps on depuradora no existeix
+  n=$(
+    query 'SELECT * FROM T_DischargePoints WHERE uwwCode NOT IN (SELECT uwwCode FROM T_UWWTPS)' --count
+  );
+  echo ">> Discharge points on 'uwwCode' no existeix a la taula 'T_UWWTPS': $n"
+
+  # depuradores sense discharge point
+  n=$(
+    query 'SELECT * FROM T_UWWTPS WHERE uwwCode NOT IN (SELECT uwwCode FROM T_DischargePoints)' --count
+  );
+  echo ">> Depuradores sense discharge points: $n"
+
+  # depuradores amb més d'un discharge point
+  n=$(
+    query 'SELECT * FROM T_DischargePoints GROUP BY uwwCode HAVING COUNT(uwwCode)>1' --count
+  );
+  echo ">> Depuradores amb múltiples discharge points: $n"
+
 # UWWTP EMISSION LOAD
   n=$(query 'SELECT * FROM T_UWWTPS_emission_load' --count)
   echo;echo "> EMISSIONS DEPURADORES 'T_UWWTPS_emission_load': $n";
@@ -130,43 +170,3 @@ function veure_schemas(){
     query 'SELECT aggCode FROM T_Agglomerations WHERE aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos)' --count
   );
   echo ">> Aglomeracions sense connexió 'aggCode not in T_UWWTPAgglos': $n"
-
-# DISCHARGE POINTS
-  n=$(query 'SELECT 1 FROM T_DischargePoints' --count);
-  echo;echo "> DISCHARGE POINTS 'T_DischargePoints': $n"
-
-  # discharge points duplicats
-  n=$(
-    query 'SELECT * FROM T_DischargePoints GROUP BY dcpCode HAVING COUNT(dcpCode)>1' --count
-  );
-  echo ">> Discharge points duplicats ('dcpCode'): $n";
-
-  # discharge points sense latitud o longitud
-  n=$(
-    query 'SELECT * FROM T_DischargePoints WHERE dcpLatitude is NULL OR dcpLongitude is NULL' --count
-  );
-  echo ">> Discharge points on 'dcpLatitude' o 'dcpLongitude' són NULL: $n"
-
-  # dps sense depuradora
-  n=$(
-    query 'SELECT * FROM T_DischargePoints WHERE uwwCode is NULL' --count
-  );
-  echo ">> Discharge points on 'uwwCode' és NULL: $n"
-
-  # dps on depuradora no existeix
-  n=$(
-    query 'SELECT * FROM T_DischargePoints WHERE uwwCode NOT IN (SELECT uwwCode FROM T_UWWTPS)' --count
-  );
-  echo ">> Discharge points on 'uwwCode' no existeix a la taula 'T_UWWTPS': $n"
-
-  # depuradores sense discharge point
-  n=$(
-    query 'SELECT * FROM T_UWWTPS WHERE uwwCode NOT IN (SELECT uwwCode FROM T_DischargePoints)' --count
-  );
-  echo ">> Depuradores sense discharge points: $n"
-
-  # depuradores amb més d'un discharge point
-  n=$(
-    query 'SELECT * FROM T_DischargePoints GROUP BY uwwCode HAVING COUNT(uwwCode)>1' --count
-  );
-  echo ">> Depuradores amb múltiples discharge points: $n"
