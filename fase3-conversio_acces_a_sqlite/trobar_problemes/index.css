@@ -56,6 +56,21 @@ td.blank:before {
   content:'~no problems found';
 }
 
+div.problem_link:hover{
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+div#total_problems{
+  background:#eee;
+  position:fixed;
+  top:0;
+  right:0;
+  font-size:larger;
+  box-shadow:-2px 2px 2px #bbb;
+  padding:0.2em;
+}
+
 /* quickly fold / unfold sections */
 #T_Agglomerations       > ul{display:;}
 #T_UWWTPS               > ul{display:;}

@@ -1,10 +1,14 @@
 <?php
-  $db=new SQLite3('../1-exportacio_mdb_a_sql/Waterbase_UWWTD_v6_20171207.mdb.sqlite');
-  $limit=5; //mostrar només els n primers problemes de cada
+  //database file and sqlite connection
+  $db_file_path='../1-exportacio_mdb_a_sql/Waterbase_UWWTD_v6_20171207.mdb.sqlite';
+  $db=new SQLite3($db_file_path);
+
+  //show only the first n problems
+  $limit=5;
 ?>
 <!doctype html><html><head>
-  <title>Problem finder waterbase</title>
   <meta charset="utf-8">
+  <title>Waterbase problem finder</title>
   <link rel=stylesheet href=index.css>
 
   <!--Vue JS-->
@@ -17,6 +21,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <script>
+    //delete works via GET and update via POST (forms)
     function delete_item(taula,idNom,idVal){
       if(!taula || !idNom || !idVal) return;
       if(!confirm(`Deleting item ${taula}.${idVal}. Continue?`)) return;
@@ -24,6 +29,23 @@
     }
   </script>
 </head><body>
+
+<!--navbar--><nav>
+  <a href="https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5" target=_blank>eea.europa.eu/wwtd5</a> |
+  <a href="https://github.com/icra/waterbase-uwwtd/" target=_blank>github/icra/wwtd5</a> |
+  <a href="../1-exportacio_mdb_a_sql/" target=_blank>database files (sqlite)</a> |
+  <a href="phpliteadmin.php" target=_blank>database (phpLiteAdmin)</a> |
+</nav><hr>
+
+<!--title-->
+<h2 class=flex style="justify-content:space-between">
+  <div>Waterbase uwwtd: database problem finder</div>
+  <div><small>
+    showing first <?php echo $limit?> problems of each type
+  </small></div>
+</h2><hr>
+
+<?php include'loading.php'?><!--loading warning-->
 
 <?php /*php utils*/
   //create google maps link
@@ -33,37 +55,31 @@
 
   /*counter for total problems*/
   $total_problems = 0;
+
+  //function to calculate distance between coordinates
+  include 'distance.php'; //test: echo distance("40.6","2.0", "40.3","2.1"); //34.41 km
 ?>
 
-<!--top links--><nav>
-  <a href="https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5" target=_blank>eea.europa.eu/wwtd5</a> |
-  <a href="https://github.com/icra/waterbase-uwwtd/" target=_blank>github/icra/wwtd5</a> |
-  <a href="phpliteadmin.php" target=_blank>database (phpLiteAdmin)</a> |
-</nav><hr>
-
-<!--title-->
-<h2 class=flex style="justify-content:space-between">
-  <div> Problem finder waterbase </div>
-  <div><small>
-    (note: showing only the first <?php echo $limit?> problems found of each type)
-  </small></div>
-</h2><hr>
-
-<main>
+<main><!--main is a grid 30% 70% for summary and problem tables-->
 
 <!--index-->
 <div id=index_container>
   <!--actual index element-->
   <div id=index>
+    <!--index view-->
     <div id=index_view>
-      <h3>Summary of problems</h3>
+      <h3>Summary of problems detected</h3>
       <div>
         <!--sections-->
         <ul v-for="problemes,key in index_model">
           <li><a :href="'#'+key">{{key}}</a>
             <ul>
               <!--each problem-->
-              <li v-for="problema in problemes">{{problema}}
+              <li v-for="problema,i in problemes">
+                <div class=problem_link v-on:click="go_to_problem(key,i)">
+                  {{i+1}}. {{problema}}
+                </div>
+              </li>
             </ul>
           </li>
         </ul>
@@ -73,39 +89,53 @@
     <!--index model-->
     <script>
       let index_model={
-        T_Agglomerations : [
+        'Table_T_Agglomerations': [
           "duplicated agglomerations",
           "agglomerations with latitude or longitude NULL",
-          "agglomerations not appearing in T_UWWTPAgglos",
+          "agglomerations not in T_UWWTPAgglos",
         ],
-        T_UWWTPS:[
-          "duplicated uwwtps (by uwwCode)",
+        'Table_T_UWWTPS':[
+          "duplicated uwwtps",
           "uwwtps with latitude or longitude NULL",
-          "uwwtps without       discharge point",
-          "uwwtps with multiple discharge points",
-          "uwwtps          without connection to any agglomeration",
+          "uwwtps not in T_DischargePoints",
+          "uwwtps with multiple entries in T_DischargePoints",
+          "uwwtps not in T_UWWTPAgglos",
         ],
-        T_DischargePoints:[
-          "duplicated discharge points (by dcpCode)",
+        'Table_T_DischargePoints':[
+          "duplicated discharge points",
           "discharge points with latitude or longitude NULL",
           "discharge points where uwwCode is not in T_UWWTPS",
         ],
-        T_UWWTPS_emission_load:[
+        'Table_T_UWWTPS_emission_load':[
           "emissions with uwwCode duplicated",
           "emissions with uwwCode NULL",
           "emissions with uwwCode not in T_UWWTPS",
         ],
-        T_UWWTPAgglos:[
-          "connections with uwwCode NULL or aggCode NULL",
+        'Table_T_UWWTPAgglos':[
+          "connections with uwwCode or aggCode NULL",
           "connections with uwwCode not in T_UWWTPS",
           "connections with aggCode not in T_Agglomerations",
+          "connections where 1 agglomeration to multiple uwwtps",
+          "connections where 1 uwwtp to multiple agglomerations",
+        ],
+        Distances:[
+          "distance agglomeration -- uwwtp < 50km",
+          "distance uwwtp -- discharge point < 50km",
+        ],
+        Percentage_PE:[
+          "check that PE sum is 100%",
         ],
       };
-      let index_vue = new Vue({
+      let index_vue=new Vue({
         el:'#index_view',
         data:{
           index_model: index_model,
           visible:true,
+        },
+        methods:{
+          go_to_problem(key,i){
+            document.querySelectorAll(`#${key} li.problem`)[i].scrollIntoView();
+          }
         },
       });
     </script>
@@ -114,8 +144,23 @@
 
 <!--problems-->
 <ul id=problems>
-  <li class=table id=T_Agglomerations>
-    <h3><a href=#T_Agglomerations>Problems in T_Agglomerations</a></h3>
+  <!--database file status (readable and writable)-->
+  <?php
+    if(!is_readable($db_file_path)){
+      echo "<li><span style=background:red;color:white>
+        Attention: The database-file is not readable, so its content cannot be read to find problems.
+      </span></li>";
+    }
+    if(!is_writable($db_file_path)){
+      echo "<li><span style=background:red;color:white>
+        Attention: The database-file is not writable, so its content cannot be changed in any way.
+      </span></li>";
+    }
+  ?>
+
+  <!--tables-->
+  <li class=table id='Table_T_Agglomerations'>
+    <h3><a href='#Table T_Agglomerations'>Problems in table T_Agglomerations</a></h3>
     <ul>
       <li class=problem>
         <?php #aglomeracions duplicades
@@ -162,11 +207,12 @@
           ?>
         </table>
       </li>
+
       <li class=problem>
         <?php #agglomerations amb longitud o latitud NULL
           $taula="T_Agglomerations";
           $idNom="aggAgglomorationsID";
-          $where="aggLongitude is NULL OR aggLatitude is NULL";
+          $where="aggLongitude is 0 OR aggLongitude is NULL OR aggLatitude is 0 OR aggLatitude is NULL";
           $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula WHERE $where");
           $total_problems += $n_pro;
         ?>
@@ -224,6 +270,7 @@
           ?>
         </table>
       </li>
+
       <li class=problem>
         <?php #agglomerations not in T_UWWTPAgglos
           $taula="T_Agglomerations";
@@ -264,8 +311,8 @@
     </ul>
   </li>
 
-  <li class=table id=T_UWWTPS>
-    <h3><a href=#T_UWWTPS>Problems in T_UWWTPS</a></h3>
+  <li class=table id='Table_T_UWWTPS'>
+    <h3><a href='#Table T_UWWTPS'>Problems in table T_UWWTPS</a></h3>
     <ul>
       <li class=problem>
         <?php #depuradores duplicades
@@ -316,7 +363,7 @@
         <?php #wwpts with longitude or latitude NULL
           $taula="T_UWWTPS";
           $idNom="uwwUWWTPSID";
-          $where="WHERE uwwLongitude is NULL OR uwwLatitude is NULL";
+          $where="WHERE uwwLongitude is 0 OR uwwLongitude is NULL OR uwwLatitude is 0 OR uwwLatitude is NULL";
           $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
           $total_problems += $n_pro;
         ?>
@@ -387,6 +434,7 @@
           ?>
         </table>
       </li>
+
       <li class=problem>
         <?php //uwwtps not in T_DischargePoints
           $taula="T_UWWTPS";
@@ -433,7 +481,7 @@
           $total_problems+=$n_pro;
           $idNom="uwwUWWTPSID";
         ?>
-        <b>uwwtps with multiple dcps in T_DischargePoints: <span class=n_pro><?php echo $n_pro?></span></b>
+        <b>uwwtps with multiple entries in T_DischargePoints: <span class=n_pro><?php echo $n_pro?></span></b>
         <table border=1>
           <tr>
             <th>#
@@ -442,7 +490,7 @@
             <th>rptMStateKey
             <th>uwwCode
             <th>coords
-            <th>dcps found in T_DischargePoints
+            <th>repeated uwwCodes found in T_DischargePoints
           </tr>
           <?php
             $sql="SELECT * FROM $taula $where";
@@ -475,6 +523,7 @@
           ?>
         </table>
       </li>
+
       <li class=problem>
         <?php //uwwtps not in T_UWWTPAgglos
           $taula="T_UWWTPS";
@@ -512,8 +561,8 @@
     </ul>
   </li>
 
-  <li class=table id=T_DischargePoints>
-    <h3><a href=#T_DischargePoints>Problems in T_DischargePoints</a></h3>
+  <li class=table id='Table_T_DischargePoints'>
+    <h3><a href='#Table T_DischargePoints'>Problems in table T_DischargePoints</a></h3>
     <ul>
       <li class=problem>
         <?php //dcps duplicats
@@ -679,11 +728,11 @@
     </ul>
   </li>
 
-  <li class=table id=T_UWWTPS_emission_load>
-    <h3><a href=#T_UWWTPS_emission_load>Problems in T_UWWTPS_emission_load</a></h3>
+  <li class=table id='Table_T_UWWTPS_emission_load'>
+    <h3><a href='#Table T_UWWTPS_emission_load'>Problems in table T_UWWTPS_emission_load</a></h3>
     <ul>
       <li class=problem>
-        <?php //duplicate emissions 
+        <?php //duplicate emissions
           $taula="T_UWWTPS_emission_load";
           $where="GROUP BY uwwCode HAVING COUNT(uwwCode)>1";
           $n_pro=$db->querySingle("SELECT SUM(cnt) FROM (SELECT COUNT(*) AS cnt FROM $taula $where)");
@@ -713,7 +762,6 @@
                   <td>$obj_2->uwwCode
                   <td><a target=_blank href='view.php?taula=$taula&idNom=$idNom&idVal=".$obj_2->$idNom."'>$obj_2->uwwName</a>
                   <td>$obj_2->rptMStateKey
-                  <td><button onclick=delete_item('$taula','$idNom','".$obj_2->$idNom."')>delete</button>
                 ";
               }
 
@@ -795,8 +843,8 @@
     </ul>
   </li>
 
-  <li class=table id=T_UWWTPAgglos>
-    <h3><a href=#T_UWWTPAgglos>Problems in T_UWWTPAgglos</a></h3>
+  <li class=table id='Table_T_UWWTPAgglos'>
+    <h3><a href='#Table T_UWWTPAgglos'>Problems in table T_UWWTPAgglos</a></h3>
     <ul>
       <li class=problem>
         <?php //connections where uwwCode NULL or aggCode NULL
@@ -814,8 +862,8 @@
             <th>aucUwwName
             <th>aucAggName
             <th>rptMStateKey
-            <th>aucUwwCode
-            <th>aucAggCode
+            <th>uwwCode
+            <th>aggCode
           </tr>
           <?php
             $sql="SELECT * FROM $taula $where";
@@ -824,13 +872,14 @@
               $obj=(object)$row;
               echo "<tr>
                 <td>$i
-                <td>$obj->aucUWWTP_AggloID
+                <td><a target=_blank href='view.php?taula=$taula&idNom=$idNom&idVal=".$obj->$idNom."'>".$obj->$idNom."</a>
                 <td>$obj->aucUwwName
                 <td>$obj->aucAggName
                 <td>$obj->rptMStateKey
-                <td>form 1
-                <td>form 2
+                <td>$obj->aucUwwCode
+                <td>$obj->aucAggCode
               ";
+              //coro
               $i++;
             }
             if($i==1){echo "<tr><td colspan=100 class=blank>";}
@@ -912,6 +961,252 @@
           ?>
         </table>
       </li>
+
+      <li class=problem>
+        <?php //connections where 1 agglomeration to multiple uwwtps
+          $taula="T_UWWTPAgglos";
+          $where="GROUP BY aucAggCode HAVING COUNT(aucAggCode)>1";
+          $n_pro=$db->querySingle("SELECT SUM(cnt) FROM (SELECT COUNT(*) AS cnt FROM $taula $where)");
+          $total_problems+=$n_pro;
+          $idNom="aucUWWTP_AggloID";
+        ?>
+        <b>connections where 1 agglomeration to multiple uwwtps <span class=n_pro><?php echo $n_pro?></span></b>
+        <table border=1>
+          <tr>
+            <th>#
+            <th>id
+            <th>aucAggName
+            <th>rptMStateKey
+            <th>uwwCodes found
+          </tr>
+          <?php
+            $sql="SELECT * FROM $taula $where";
+            $res=$db->query("$sql LIMIT $limit");
+            $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
+              $obj=(object)$row; //convert to object
+              echo "<tr>
+                <td>$i
+                <td>$obj->aucUWWTP_AggloID
+                <td><a target=_blank href='view.php?taula=$taula&idNom=$idNom&idVal=".$obj->$idNom."'>$obj->aucAggName</a>
+                <td>$obj->rptMStateKey
+              ";
+
+              echo "<td>";
+
+              $ress=$db->query("SELECT * FROM $taula WHERE aucAggCode='$obj->aucAggCode'");
+
+              $j=1;while($roww=$ress->fetchArray(SQLITE3_ASSOC)){
+                $objj=(object)$roww;
+                echo "<div>
+                  <a href='view.php?taula=T_UWWTPAgglos&idNom=$idNom&idVal=$objj->aucUWWTP_AggloID' target=_blank>
+                    $j. $objj->aucUwwName
+                  </a>
+                </div>";
+                $j++;
+              }
+
+              $i++;
+            }
+            if($i==1){echo "<tr><td colspan=100 class=blank>";}
+            echo "<tr><td colspan=100 class=sql>$sql";
+          ?>
+        </table>
+      </li>
+
+      <li class=problem>
+        <?php //connections where 1 uwwtp to multiple agglomerations
+          $taula="T_UWWTPAgglos";
+          $where="GROUP BY aucUwwCode HAVING COUNT(aucUwwCode)>1";
+          $n_pro=$db->querySingle("SELECT SUM(cnt) FROM (SELECT COUNT(*) AS cnt FROM $taula $where)");
+          $total_problems+=$n_pro;
+          $idNom="aucUWWTP_AggloID";
+        ?>
+        <b>connections where 1 uwwtp to multiple agglomerations <span class=n_pro><?php echo $n_pro?></span></b>
+        <table border=1>
+          <tr>
+            <th>#
+            <th>id
+            <th>aucUwwName
+            <th>rptMStateKey
+            <th>aggCodes found
+          </tr>
+          <?php
+            $sql="SELECT * FROM $taula $where";
+            $res=$db->query("$sql LIMIT $limit");
+            $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
+              $obj=(object)$row; //convert to object
+              echo "<tr>
+                <td>$i
+                <td>$obj->aucUWWTP_AggloID
+                <td><a target=_blank href='view.php?taula=$taula&idNom=$idNom&idVal=".$obj->$idNom."'>$obj->aucUwwName</a>
+                <td>$obj->rptMStateKey
+              ";
+
+              echo "<td>";
+              $ress=$db->query("SELECT * FROM $taula WHERE aucUwwCode='$obj->aucUwwCode'");
+
+              $j=1;while($roww=$ress->fetchArray(SQLITE3_ASSOC)){
+                $objj=(object)$roww;
+                echo "<div>
+                  <a href='view.php?taula=T_UWWTPAgglos&idNom=$idNom&idVal=$objj->aucUWWTP_AggloID' target=_blank>
+                    $j. $objj->aucAggName
+                  </a>
+                </div>";
+                $j++;
+              }
+
+              $i++;
+            }
+            if($i==1){echo "<tr><td colspan=100 class=blank>";}
+            echo "<tr><td colspan=100 class=sql>$sql";
+          ?>
+        </table>
+      </li>
+    </ul>
+  </li>
+
+  <!--distances-->
+  <li class=table id=Distances>
+    <h3><a href='#Distances'>Problems in Distances</a></h3>
+    <ul>
+      <li class=problem>
+        <?php #distance agg-uww > 50 km
+          $taula="T_Agglomerations AS agg, T_UWWTPS AS uww";
+          $where="WHERE agg.aggCode = uww.aggCode";
+        ?>
+        <b>distance agglomeration &rarr; uwwtp &gt; 50km</b>
+        <table border=1>
+          <tr>
+            <th>#
+            <th>aggName
+            <th>uwwName
+            <th>agg Coords
+            <th>uww Coords
+            <th>distance (km)
+          </tr>
+          <?php
+            $sql="SELECT * FROM $taula $where";
+            $res=$db->query($sql);
+            $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
+              $obj = (object)$row; //convert row to object
+
+              $distance=distance($obj->aggLatitude, $obj->aggLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
+              if($distance==false) continue;
+              if($distance<50) continue;
+
+              echo "<tr>
+                <td>$i
+                <td>$obj->aggName
+                <td>$obj->uwwName
+                <td>".google_maps_link($obj->aggLatitude, $obj->aggLongitude)."
+                <td>".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+                <td>$distance
+              ";
+              if($i==$limit)break;
+              $i++;
+            }
+            if($i==1){echo "<tr><td colspan=100 class=blank>";}
+            echo "<tr><td colspan=100 class=sql>$sql";
+          ?>
+        </table>
+      </li>
+
+      <li class=problem>
+        <?php #distance uww-dcp > 50 km
+          $taula="T_UWWTPS AS uww, T_DischargePoints AS dcp";
+          $where="WHERE uww.uwwCode = dcp.uwwCode";
+        ?>
+        <b>distance uwwtp &rarr; dcp &gt; 50km</b>
+        <table border=1>
+          <tr>
+            <th>#
+            <th>uwwName
+            <th>dcpName
+            <th>uww Coords
+            <th>dcp Coords
+            <th>distance (km)
+          </tr>
+          <?php
+            $sql="SELECT * FROM $taula $where";
+            $res=$db->query($sql);
+            $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
+              $obj = (object)$row; //convert row to object
+
+              $distance=distance($obj->dcpLatitude, $obj->dcpLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
+              if($distance==false) continue;
+              if($distance<50) continue;
+
+              echo "<tr>
+                <td>$i
+                <td>$obj->uwwName
+                <td>$obj->dcpName
+                <td>".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+                <td>".google_maps_link($obj->dcpLatitude, $obj->dcpLongitude)."
+                <td>$distance
+              ";
+              if($i==$limit)break;
+              $i++;
+            }
+            if($i==1){echo "<tr><td colspan=100 class=blank>";}
+            echo "<tr><td colspan=100 class=sql>$sql";
+          ?>
+        </table>
+      </li>
+    </ul>
+  </li>
+
+  <!--percentage PE-->
+  <li class=table id=Percentage_PE>
+    <h3><a href=#Percentage_PE>Problems in Percentage PE</a></h3>
+    <ul>
+      <li class=problem>
+        <?php #check that PE sum is 100%
+          $cols ="*,aggC1 AS c1, aggC2 AS c2, aggPercWithoutTreatment AS c3, aucPercEnteringUWWTP AS c4, aucPercC2T AS c5";
+          $taula="T_Agglomerations AS agg, T_UWWTPAgglos AS con";
+          $where="WHERE agg.aggCode = con.aucAggCode";
+        ?>
+        <b>check c1+c2+c3+c5 == 100%</b>
+        <table border=1>
+          <tr>
+            <th>#
+            <th>aggName
+            <th title="%PE to sewer">C1
+            <th title="%PE to IAS">C2
+            <th title="%PE without treatment">C3
+            <th title="%C1 to UWWTP">C4
+            <th title="%PE C2T">C5
+            <th title="C1-C4">C6
+            <th title="C1+C2+C3+C5">sum
+          </tr>
+          <?php
+            $sql="SELECT $cols FROM $taula $where";
+            $res=$db->query("$sql LIMIT $limit");
+            $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
+              $obj=(object)$row;//convert row to object
+
+              $c6 = $obj->c1 - $obj->c4;
+              $sum = $obj->c1 + $obj->c2 + $obj->c3 + $obj->c5;
+              echo "<tr>
+                <td>$i
+                <td>
+                  <a href='view.php?taula=$taula&idNom=$idNom&idVal=$obj->aggAgglomorationsID'>
+                    $obj->aggName
+                  </a>
+                <td>$obj->c1
+                <td>$obj->c2
+                <td>$obj->c3
+                <td>$obj->c4
+                <td>$obj->c5
+                <td>$c6
+                <td>$sum
+              ";
+              $i++;
+            }
+            if($i==1){echo "<tr><td colspan=100 class=blank>";}
+            echo "<tr><td colspan=100 class=sql>$sql";
+          ?>
+        </table>
+      </li>
     </ul>
   </li>
 </ul>
@@ -919,6 +1214,7 @@
 </main>
 
 <!--total problems-->
-<div style="background:orange">
-  Total problems found: <?php echo $total_problems ?>
+<div id=total_problems>
+  Total problems found:
+  <span class=n_pro><?php echo $total_problems?></span>
 </div>

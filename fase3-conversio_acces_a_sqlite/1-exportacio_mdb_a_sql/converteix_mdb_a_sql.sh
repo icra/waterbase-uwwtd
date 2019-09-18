@@ -17,7 +17,7 @@ for taula in ${taules[@]}; do
   echo ">> [mdb] taula $taula: $files files ";
 done
 
-#importa a sqlite
+#importa fitxers sql generats a sqlite
 for taula in ${taules[@]}; do
   echo -n "Important $taula a sqlite3... "
   sqlite3 $mdb.sqlite < $taula.schema.sql
@@ -31,5 +31,3 @@ for taula in ${taules[@]}; do
   files=$(echo "$sql" | sqlite3 $mdb.sqlite);
   echo ">> [sqlite] taula $taula: $files files ";
 done
-
-#reconciliació dades
