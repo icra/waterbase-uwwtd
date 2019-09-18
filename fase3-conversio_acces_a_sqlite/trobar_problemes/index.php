@@ -39,7 +39,7 @@
 
 <!--title-->
 <h2 class=flex style="justify-content:space-between">
-  <div>Waterbase uwwtd: database problem finder</div>
+  <div>Waterbase uwwtd: database problem finder platform</div>
   <div><small>
     showing first <?php echo $limit?> problems of each type
   </small></div>
