@@ -1,4 +1,4 @@
-*status*: please go to phase3, this folder is no longer used, because used another approach: creating the database from the csv files, which generated a lot of problems
+*status*: this folder is no longer used, because it used another approach: creating the sqlite database from the csv files, which generated a lot of problems
 
 [lang=catalan]
 
