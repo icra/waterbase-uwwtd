@@ -1,33 +1,35 @@
 #!/bin/bash
-#exporta les taules que ens interessen del fitxer acces mdb a un fitxer sqlite
 
-mdb="Waterbase_UWWTD_v6_20171207.mdb"; #ruta arxiu mdb (ms acces)
-taules=("T_UWWTPS" "T_Agglomerations" "T_UWWTPAgglos" "T_DischargePoints" "T_UWWTPS_emission_load")
+#export the desired tables from the acces mdb file to a new sqlite file
+tables=("T_UWWTPS" "T_Agglomerations" "T_UWWTPAgglos" "T_DischargePoints" "T_UWWTPS_emission_load")
 
-#exporta de mdb
-for taula in ${taules[@]}; do
-  echo -n "Exportant $taula d'Access (mdb) a SQL..."
-  mdb-schema --drop-table $mdb sqlite --table $taula > $taula.schema.sql; #schema taula
-  mdb-export -I sqlite $mdb $taula > $taula.sql;                          #dades taula
+#mdb file path
+mdb="Waterbase_UWWTD_v6_20171207.mdb";
+
+#export from mdb
+for table in ${tables[@]}; do
+  echo -n "Exporting $table from Access (mdb) to SQL..."
+  mdb-schema --drop-table $mdb sqlite --table $table > $table.schema.sql; #table schema
+  mdb-export -I sqlite $mdb $table > $table.sql;                          #table data
 done
 
-#compta files de cada taula
-for taula in ${taules[@]}; do
-  files=$(wc -l $taula.sql | awk '{print $1}'); #nombre de files
-  echo ">> [mdb] taula $taula: $files files ";
+#count rows for each table
+for table in ${tables[@]}; do
+  rows=$(wc -l $table.sql | awk '{print $1}'); #number of rows
+  echo ">> [mdb] table $table: $rows rows ";
 done
 
-#importa fitxers sql generats a sqlite
-for taula in ${taules[@]}; do
-  echo -n "Important $taula a sqlite3... "
-  sqlite3 $mdb.sqlite < $taula.schema.sql
-  sqlite3 $mdb.sqlite < $taula.sql
-  echo "Fet"
+#import the generated sql files to sqlite
+for table in ${tables[@]}; do
+  echo -n "Importing $table to sqlite3... "
+  sqlite3 $mdb.sqlite < $table.schema.sql
+  sqlite3 $mdb.sqlite < $table.sql
+  echo "Done"
 done
 
-#compta files de cada taula
-for taula in ${taules[@]}; do
-  sql="SELECT COUNT(*) FROM $taula;"
-  files=$(echo "$sql" | sqlite3 $mdb.sqlite);
-  echo ">> [sqlite] taula $taula: $files files ";
+#count rows for each table
+for table in ${tables[@]}; do
+  sql="SELECT COUNT(*) FROM $table;"
+  rows=$(echo "$sql" | sqlite3 $mdb.sqlite);
+  echo ">> [sqlite] table $table: $rows rows ";
 done

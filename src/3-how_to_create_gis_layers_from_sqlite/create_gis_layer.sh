@@ -3,7 +3,7 @@
 # CREATE GIS LAYERS IN CSV FORMAT
 
 # sqlite file path
-db="../Waterbase_UWWTD_v6_20171207.mdb.sqlite"
+db="../1-export_mdb_to_sqlite/Waterbase_UWWTD_v6_20171207.mdb.sqlite"
 
 # create csvs
 echo "SELECT aggName,aggLatitude,aggLongitude FROM T_Agglomerations" |sqlite3 -csv $db > layer_agglomerations.csv
