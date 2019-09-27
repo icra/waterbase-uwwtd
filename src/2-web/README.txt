@@ -9,4 +9,4 @@ whole package in the correct place inside the web server (for example, the
 
 "http://localhost/waterbase-uwwtd/src/2-web/"
 
-and the web platform that reads the database will load.
+and the web platform that reads the sqlite database will start loading.

@@ -49,6 +49,7 @@ td.sql {
   font-family:monospace;
 }
 td.blank {
+  background:#af0;
   font-family:monospace;
   color:#666;
 }

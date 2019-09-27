@@ -2,7 +2,7 @@
 /*
   view single item
 */
-$db=new SQLite3('../1-exportacio_mdb_a_sql/Waterbase_UWWTD_v6_20171207.mdb.sqlite');
+include 'load_db.php';
 
 //input
 $taula = SQLite3::escapeString($_GET['taula']);

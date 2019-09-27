@@ -1,9 +1,9 @@
 <?php
   //database file and sqlite connection
-  $db_file_path='../1-exportacio_mdb_a_sql/Waterbase_UWWTD_v6_20171207.mdb.sqlite';
+  $db_file_path='../1-export_mdb_to_sqlite/Waterbase_UWWTD_v6_20171207.mdb.sqlite';
   $db=new SQLite3($db_file_path);
 
-  //show only the first n problems
+  //show only the first $limit problems
   $limit=5;
 ?>
 <!doctype html><html><head>
@@ -160,7 +160,7 @@
 
   <!--tables-->
   <li class=table id='Table_T_Agglomerations'>
-    <h3><a href='#Table T_Agglomerations'>Problems in table T_Agglomerations</a></h3>
+    <h3><a href='#Table_T_Agglomerations'>Problems in table T_Agglomerations</a></h3>
     <ul>
       <li class=problem>
         <?php #aglomeracions duplicades
@@ -312,7 +312,7 @@
   </li>
 
   <li class=table id='Table_T_UWWTPS'>
-    <h3><a href='#Table T_UWWTPS'>Problems in table T_UWWTPS</a></h3>
+    <h3><a href='#Table_T_UWWTPS'>Problems in table T_UWWTPS</a></h3>
     <ul>
       <li class=problem>
         <?php #depuradores duplicades
@@ -562,7 +562,7 @@
   </li>
 
   <li class=table id='Table_T_DischargePoints'>
-    <h3><a href='#Table T_DischargePoints'>Problems in table T_DischargePoints</a></h3>
+    <h3><a href='#Table_T_DischargePoints'>Problems in table T_DischargePoints</a></h3>
     <ul>
       <li class=problem>
         <?php //dcps duplicats
@@ -729,7 +729,7 @@
   </li>
 
   <li class=table id='Table_T_UWWTPS_emission_load'>
-    <h3><a href='#Table T_UWWTPS_emission_load'>Problems in table T_UWWTPS_emission_load</a></h3>
+    <h3><a href='#Table_T_UWWTPS_emission_load'>Problems in table T_UWWTPS_emission_load</a></h3>
     <ul>
       <li class=problem>
         <?php //duplicate emissions
@@ -844,7 +844,7 @@
   </li>
 
   <li class=table id='Table_T_UWWTPAgglos'>
-    <h3><a href='#Table T_UWWTPAgglos'>Problems in table T_UWWTPAgglos</a></h3>
+    <h3><a href='#Table_T_UWWTPAgglos'>Problems in table T_UWWTPAgglos</a></h3>
     <ul>
       <li class=problem>
         <?php //connections where uwwCode NULL or aggCode NULL
