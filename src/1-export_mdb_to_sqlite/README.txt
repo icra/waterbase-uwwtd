@@ -23,7 +23,3 @@ EXPORT RESULTS
 
   >> [mdb]    table T_UWWTPS_emission_load: 30446 rows
   >> [sqlite] table T_UWWTPS_emission_load: 30437 rows
-
-HOW TO CONNECT SQLITE TO C
-==========================
-http://zetcode.com/db/sqlitec/
