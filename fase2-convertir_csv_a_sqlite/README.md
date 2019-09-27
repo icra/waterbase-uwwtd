@@ -1,4 +1,6 @@
-*status*: en desenvolupament (juliol 2019, seguint passos arxiu 'operacions.docx.md')
+*status*: please go to phase3, this folder is no longer used, because used another approach: creating the database from the csv files, which generated a lot of problems
+
+[lang=catalan]
 
 __fase2__: seguir feina fase 1 anna, transformant gui php a fitxer python (+ ràpid)
 
