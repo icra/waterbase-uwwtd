@@ -33,7 +33,7 @@
 <!--navbar--><nav>
   <a href="https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5" target=_blank>eea.europa.eu/wwtd5</a> |
   <a href="https://github.com/icra/waterbase-uwwtd/" target=_blank>github/icra/wwtd5</a> |
-  <a href="../1-exportacio_mdb_a_sql/" target=_blank>database files (sqlite)</a> |
+  <a href="../1-export_mdb_to_sqlite/" target=_blank>database files (sqlite)</a> |
   <a href="phpliteadmin.php" target=_blank>database (phpLiteAdmin)</a> |
 </nav><hr>
 
@@ -119,8 +119,8 @@
           "connections where 1 uwwtp to multiple agglomerations",
         ],
         Distances:[
-          "distance agglomeration -- uwwtp < 50km",
-          "distance uwwtp -- discharge point < 50km",
+          "distance agglomeration -- uwwtp < 30km",
+          "distance uwwtp -- discharge point < 30km",
         ],
         Percentage_PE:[
           "check that PE sum is 100%",
@@ -1070,11 +1070,11 @@
     <h3><a href='#Distances'>Problems in Distances</a></h3>
     <ul>
       <li class=problem>
-        <?php #distance agg-uww > 50 km
+        <?php #distance agg-uww > 30 km
           $taula="T_Agglomerations AS agg, T_UWWTPS AS uww";
           $where="WHERE agg.aggCode = uww.aggCode";
         ?>
-        <b>distance agglomeration &rarr; uwwtp &gt; 50km</b>
+        <b>distance agglomeration &rarr; uwwtp &gt; 30km</b>
         <table border=1>
           <tr>
             <th>#
@@ -1092,7 +1092,7 @@
 
               $distance=distance($obj->aggLatitude, $obj->aggLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
               if($distance==false) continue;
-              if($distance<50) continue;
+              if($distance<30) continue;
 
               echo "<tr>
                 <td>$i
@@ -1112,11 +1112,11 @@
       </li>
 
       <li class=problem>
-        <?php #distance uww-dcp > 50 km
+        <?php #distance uww-dcp > 30 km
           $taula="T_UWWTPS AS uww, T_DischargePoints AS dcp";
           $where="WHERE uww.uwwCode = dcp.uwwCode";
         ?>
-        <b>distance uwwtp &rarr; dcp &gt; 50km</b>
+        <b>distance uwwtp &rarr; dcp &gt; 30km</b>
         <table border=1>
           <tr>
             <th>#
@@ -1134,7 +1134,7 @@
 
               $distance=distance($obj->dcpLatitude, $obj->dcpLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
               if($distance==false) continue;
-              if($distance<50) continue;
+              if($distance<30) continue;
 
               echo "<tr>
                 <td>$i

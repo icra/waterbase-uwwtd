@@ -1,10 +1,17 @@
 #!/bin/bash
 
 #export the desired tables from the acces mdb file to a new sqlite file
-tables=("T_UWWTPS" "T_Agglomerations" "T_UWWTPAgglos" "T_DischargePoints" "T_UWWTPS_emission_load")
+tables=(
+  "T_Agglomerations"
+  "T_UWWTPs"
+  "T_UWWTPAgglos"
+  "T_DischargePoints"
+  "T_UWWTPs_emission_load"
+)
 
 #mdb file path
-mdb="Waterbase_UWWTD_v6_20171207.mdb";
+#mdb="Waterbase_UWWTD_v6_20171207.mdb";
+mdb=$1;
 
 #export from mdb
 for table in ${tables[@]}; do
