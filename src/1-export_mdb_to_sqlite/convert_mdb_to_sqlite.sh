@@ -3,15 +3,15 @@
 #export the desired tables from the acces mdb file to a new sqlite file
 tables=(
   "T_Agglomerations"
-  "T_UWWTPs"
-  "T_UWWTPAgglos"
   "T_DischargePoints"
-  "T_UWWTPs_emission_load"
+  "T_UWWTPS"
+  "T_UWWTPS_emission_load"
+  "T_UWWTPAgglos"
 )
 
-#mdb file path
-#mdb="Waterbase_UWWTD_v6_20171207.mdb";
 mdb=$1;
+#mdb="Waterbase_UWWTD_v6_20171207.mdb";        #v6
+#mdb="Waterbase_UWWTD_v7_20190913021736.accdb" #v7
 
 #export from mdb
 for table in ${tables[@]}; do

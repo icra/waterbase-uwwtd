@@ -1,8 +1,7 @@
 <?php
   //database file and sqlite connection
-  $db_file_path='../1-export_mdb_to_sqlite/Waterbase_UWWTD_v6_20171207.mdb.sqlite';
+  $db_file_path='../1-export_mdb_to_sqlite/Waterbase_UWWTD_v7_20190913021736.accdb.sqlite';
   $db=new SQLite3($db_file_path);
-
   //show only the first $limit problems
   $limit=5;
 ?>
@@ -21,7 +20,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <script>
-    //delete works via GET and update via POST (forms)
+    //delete: via GET
+    //update: via POST
     function delete_item(taula,idNom,idVal){
       if(!taula || !idNom || !idVal) return;
       if(!confirm(`Deleting item ${taula}.${idVal}. Continue?`)) return;
@@ -31,10 +31,10 @@
 </head><body>
 
 <!--navbar--><nav>
-  <a href="https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-5" target=_blank>eea.europa.eu/wwtd5</a> |
-  <a href="https://github.com/icra/waterbase-uwwtd/" target=_blank>github/icra/wwtd5</a> |
-  <a href="../1-export_mdb_to_sqlite/" target=_blank>database files (sqlite)</a> |
-  <a href="phpliteadmin.php" target=_blank>database (phpLiteAdmin)</a> |
+  <a href="https://www.eea.europa.eu/data-and-maps/data/waterbase-uwwtd-urban-waste-water-treatment-directive-6" target=_blank>eea.europa.eu/wwtd6</a> |
+  <a href="https://github.com/icra/waterbase-uwwtd/" target=_blank>github/icra/waterbase-uwwtd</a> |
+  <a href="../1-export_mdb_to_sqlite/" target=_blank>explore files</a> |
+  <a href="phpliteadmin.php" target=_blank>phpLiteAdmin</a> |
 </nav><hr>
 
 <!--title-->
@@ -165,7 +165,8 @@
       <li class=problem>
         <?php #aglomeracions duplicades
           $taula="T_Agglomerations";
-          $idNom="aggAgglomorationsID";
+          $idNom="aggAgglomorationsID";//v6
+          $idNom="aggCode";//v7
           $where="GROUP BY aggCode HAVING COUNT(aggCode)>1";
           $n_pro=$db->querySingle("SELECT SUM(cnt) FROM (SELECT COUNT(*) AS cnt FROM $taula $where)");
           $total_problems += $n_pro;
