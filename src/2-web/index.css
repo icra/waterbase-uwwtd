@@ -47,6 +47,7 @@ ul#problems h3 a, ul#problems h3 a:visited{
 td.sql {
   background:azure;
   font-family:monospace;
+  font-size:smaller;
 }
 td.blank {
   background:#af0;

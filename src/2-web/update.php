@@ -12,10 +12,10 @@ $camp     = SQLite3::escapeString($_POST['camp']);
 $nouValor = SQLite3::escapeString($_POST['nouValor']);
 
 //query
-$sql="UPDATE $taula SET $camp='$nouValor' WHERE $idNom=$idVal";
+$sql="UPDATE $taula SET $camp='$nouValor' WHERE $idNom='$idVal'";
 $db->exec($sql) or die(print_r($db->errorInfo(), true));
 
-//tornar enrere
+//display update info and go back
 echo "
   <ul>
     <li>$sql
