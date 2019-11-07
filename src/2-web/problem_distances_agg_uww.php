@@ -11,6 +11,7 @@
 
 <table border=1>
   <tr>
+    <th>nº
     <th>aggName
     <th>agg Coords
     <th>uwwName
@@ -26,13 +27,14 @@
       if($distance==false) continue;
       if($distance<30) continue;
       echo "<tr>
+        <td>$i
         <td>$obj->aggName
         <td>".google_maps_link($obj->aggLatitude, $obj->aggLongitude)."
         <td>$obj->uwwName
         <td>".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
         <td>$distance
       ";
-      if($i==$limit)break;
+      //if($i==$limit)break;
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
