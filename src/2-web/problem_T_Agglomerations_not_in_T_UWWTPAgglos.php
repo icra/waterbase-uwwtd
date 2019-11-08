@@ -16,6 +16,7 @@
     <th><?php echo $idNom?>
     <th>aggName
     <th>rptMStateKey
+    <th>found in T_UWWTPS?
   </tr>
   <?php
     $sql="SELECT * FROM $taula $where";
@@ -29,7 +30,20 @@
             $obj->aggName
           </a>
         <td>$obj->rptMStateKey
+        <td>
       ";
+
+      //search current aggCode in T_UWWTPS
+      $ress=$db->query("SELECT * FROM T_UWWTPS WHERE aggCode='$obj->aggCode'");
+      while($roww=$ress->fetchArray(SQLITE3_ASSOC)){
+        $objj=(object)$roww;
+        echo "<div>
+          <a target=_blank href='view.php?taula=T_UWWTPS&idNom=uwwCode&idVal=$objj->uwwCode'>
+            $obj->uwwName
+          </a>
+        </div>";
+      }
+
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
