@@ -2,7 +2,10 @@
   #agglomerations not in T_UWWTPAgglos
   $taula="T_Agglomerations";
   $idNom="aggCode";
-  $where="WHERE aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos)";
+  $where="WHERE
+    aggState=1 AND
+    aggGenerated>=2000 AND
+    aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos)";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems += $n_pro;
 ?>
@@ -23,6 +26,8 @@
     $res=$db->query("$sql LIMIT $limit");
     $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
       $obj=(object)$row;
+
+      //mostra dades aglomeració
       echo "<tr>
         <td>".$obj->$idNom."
         <td>
@@ -39,7 +44,7 @@
         $objj=(object)$roww;
         echo "<div>
           <a target=_blank href='view.php?taula=T_UWWTPS&idNom=uwwCode&idVal=$objj->uwwCode'>
-            $obj->uwwName
+            $objj->uwwName
           </a>
         </div>";
       }

@@ -212,7 +212,7 @@
       <?php include'problem_T_DischargePoints_lat_long_null.php'?>
       </li>
       <li class=problem>
-      <?php include'problem_T_DischargePoints_not_in_T_UWWTPAgglos.php'?>
+      <?php include'problem_T_DischargePoints_not_in_T_UWWTPS.php'?>
       </li>
     </ul>
   </li>

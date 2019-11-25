@@ -4,6 +4,7 @@
   $idNom="uwwCode";
   $where="WHERE uwwCode IN (
     SELECT uwwCode FROM T_DischargePoints
+    WHERE dcpState=1
     GROUP BY uwwCode HAVING COUNT(uwwCode)>1
   )";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
@@ -42,9 +43,16 @@
       $ress=$db->query("SELECT * FROM T_DischargePoints WHERE uwwCode='$obj->uwwCode'");
       while($roww=$ress->fetchArray(SQLITE3_ASSOC)){
         $objj=(object)$roww;
+        $remark = $objj->dcpRemarks;
+        if($remark=="") $remark = "<i>empty</i>";
         echo "<div>
           <a href='view.php?taula=T_DischargePoints&idNom=dcpDischargePointsID&idVal=$objj->dcpDischargePointsID' target=_blank>$objj->dcpName</a>
           (".google_maps_link($objj->dcpLatitude,$objj->dcpLongitude).")
+          <br>
+          remark: $remark
+          <br>
+          <button onclick=delete_item('T_DischargePoints','dcpCode','$objj->dcpCode')> elimina dcp</button>
+          <br> <br>
         </div>";
       }
       $i++;

@@ -2,7 +2,7 @@
   //wwtps not in T_UWWTPAgglos
   $taula="T_UWWTPS";
   $idNom="uwwCode";
-  $where="WHERE uwwCode NOT IN (SELECT aucUwwCode FROM T_UWWTPAgglos)";
+  $where="WHERE uwwState=1 AND uwwCode NOT IN (SELECT aucUwwCode FROM T_UWWTPAgglos)";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems+=$n_pro;
 ?>

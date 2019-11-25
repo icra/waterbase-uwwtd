@@ -2,7 +2,7 @@
   //uwwtps not in T_DischargePoints
   $taula="T_UWWTPS";
   $idNom="uwwCode";
-  $where="WHERE uwwCode NOT IN (SELECT uwwCode FROM T_DischargePoints)";
+  $where="WHERE uwwState=1 AND uwwCode NOT IN (SELECT uwwCode FROM T_DischargePoints)";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems+=$n_pro;
 ?>
