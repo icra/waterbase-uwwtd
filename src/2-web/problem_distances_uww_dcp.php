@@ -26,9 +26,47 @@
       echo "<tr>
         <td>$i
         <td>$obj->uwwName
-        <td>".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+        <td>
+          ".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+          <br>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_UWWTPS'>
+            <input type=hidden name=idNom    value='uwwCode'>
+            <input type=hidden name=idVal    value='$obj->uwwCode'>
+            <input type=hidden name=camp     value='uwwLatitude'>
+            <input name=nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
+            <button>guarda uwwLatitude</button>
+          </form>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_UWWTPS'>
+            <input type=hidden name=idNom    value='uwwCode'>
+            <input type=hidden name=idVal    value='$obj->uwwCode'>
+            <input type=hidden name=camp     value='uwwLongitude'>
+            <input name=nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
+            <button>guarda uwwLongitude</button>
+          </form>
+        </td>
         <td>$obj->dcpName
-        <td>".google_maps_link($obj->dcpLatitude, $obj->dcpLongitude)."
+        <td>
+          ".google_maps_link($obj->dcpLatitude, $obj->dcpLongitude)."
+          <br>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_DischargePoints'>
+            <input type=hidden name=idNom    value='dcpCode'>
+            <input type=hidden name=idVal    value='$obj->dcpCode'>
+            <input type=hidden name=camp     value='dcpLatitude'>
+            <input name=nouValor value='$obj->dcpLatitude' placeholder='dcpLatitude'>
+            <button>guarda dcpLatitude</button>
+          </form>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_DischargePoints'>
+            <input type=hidden name=idNom    value='dcpCode'>
+            <input type=hidden name=idVal    value='$obj->dcpCode'>
+            <input type=hidden name=camp     value='dcpLongitude'>
+            <input name=nouValor value='$obj->dcpLongitude' placeholder='dcpLongitude'>
+            <button>guarda dcpLongitude</button>
+          </form>
+        </td>
         <td>$distance
       ";
       $i++;

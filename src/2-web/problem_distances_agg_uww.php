@@ -29,9 +29,47 @@
       echo "<tr>
         <td>$i
         <td>$obj->aggName
-        <td>".google_maps_link($obj->aggLatitude, $obj->aggLongitude)."
+        <td>
+          ".google_maps_link($obj->aggLatitude, $obj->aggLongitude)."
+          <br>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_Agglomerations'>
+            <input type=hidden name=idNom    value='aggCode'>
+            <input type=hidden name=idVal    value='$obj->aggCode'>
+            <input type=hidden name=camp     value='aggLatitude'>
+            <input name=nouValor value='$obj->aggLatitude' placeholder='aggLatitude'>
+            <button>guarda aggLatitude</button>
+          </form>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_Agglomerations'>
+            <input type=hidden name=idNom    value='aggCode'>
+            <input type=hidden name=idVal    value='$obj->aggCode'>
+            <input type=hidden name=camp     value='aggLongitude'>
+            <input name=nouValor value='$obj->aggLongitude' placeholder='aggLongitude'>
+            <button>guarda aggLongitude</button>
+          </form>
+        </td>
         <td>$obj->uwwName
-        <td>".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+        <td>
+          ".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
+          <br>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_UWWTPS'>
+            <input type=hidden name=idNom    value='uwwCode'>
+            <input type=hidden name=idVal    value='$obj->uwwCode'>
+            <input type=hidden name=camp     value='uwwLatitude'>
+            <input name=nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
+            <button>guarda uwwLatitude</button>
+          </form>
+          <form method=POST action='update.php'>
+            <input type=hidden name=taula    value='T_UWWTPS'>
+            <input type=hidden name=idNom    value='uwwCode'>
+            <input type=hidden name=idVal    value='$obj->uwwCode'>
+            <input type=hidden name=camp     value='uwwLongitude'>
+            <input name=nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
+            <button>guarda uwwLongitude</button>
+          </form>
+        </td>
         <td>$distance
       ";
       //if($i==$limit)break;
