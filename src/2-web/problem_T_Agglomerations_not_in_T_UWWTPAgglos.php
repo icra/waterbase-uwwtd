@@ -5,7 +5,14 @@
   $where="WHERE
     aggState=1 AND
     aggGenerated>=2000 AND
-    aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos)";
+    aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos) AND
+    (
+      aggRemarks IS NULL OR
+      (
+        aggRemarks NOT LIKE '%IAS%' AND aggRemarks NOT LIKE '%septic%'
+      )
+    )
+  ";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems += $n_pro;
 ?>
@@ -18,6 +25,9 @@
   <tr>
     <th><?php echo $idNom?>
     <th>aggName
+    <th>aggState
+    <th>aggGenerated
+    <th>aggRemarks
     <th>rptMStateKey
     <th>found in T_UWWTPS?
   </tr>
@@ -29,11 +39,14 @@
 
       //mostra dades aglomeració
       echo "<tr>
-        <td>".$obj->$idNom."
+        <td>".$obj->$idNom."</td>
         <td>
           <a target=_blank href='view.php?taula=$taula&idNom=$idNom&idVal=".$obj->$idNom."'>
             $obj->aggName
           </a>
+        <td>$obj->aggState
+        <td>$obj->aggGenerated
+        <td>$obj->aggRemarks
         <td>$obj->rptMStateKey
         <td>
       ";

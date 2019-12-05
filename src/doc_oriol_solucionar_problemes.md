@@ -59,7 +59,7 @@
 # reunió oriol, lluís, lluís | 2/12/2019
 --------------------------------------------------------------------------------
 
-trobar IAS a (columna "~~remark"): paraules clau:
+trobar aglomeracions IAS a (columna "aggRemarks"): paraules clau:
   - IAS
   - septic
 
@@ -72,6 +72,3 @@ trobar IAS a (columna "~~remark"): paraules clau:
 
 - excloure de problemes trobats les aglomeracions que estiguin incloses en
   aquestes dues noves taules.
-
-
-
