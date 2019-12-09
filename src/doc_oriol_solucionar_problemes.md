@@ -59,7 +59,7 @@
 # reunió oriol, lluís, lluís | 2/12/2019
 --------------------------------------------------------------------------------
 
-trobar aglomeracions IAS a (columna "aggRemarks"): paraules clau:
+[fet] trobar aglomeracions IAS a (columna "aggRemarks"): paraules clau:
   - IAS
   - septic
 
@@ -69,6 +69,7 @@ trobar aglomeracions IAS a (columna "aggRemarks"): paraules clau:
 
 - crear nova taula de conexions entre "aglomeració" i "res" (no tenen les
   parules clau a la columna de remark).
+  "descarreguen al riu".
 
 - excloure de problemes trobats les aglomeracions que estiguin incloses en
-  aquestes dues noves taules.
+  aquestes dues noves taules i que no estiguin a la taula de connexions.
