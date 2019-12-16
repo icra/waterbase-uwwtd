@@ -1,13 +1,13 @@
+# REUNIONS
+
 --------------------------------------------------------------------------------
-# reunió oriol, lluís | 25/11/2019
+1. reunió oriol, lluís                                                25/11/2019
 --------------------------------------------------------------------------------
   * [fet] git pull sense sobreescriure base de dades oriol.
-
   * [fet] problemes generals:
     1. sempre que mirem depuradores:       columna uwwState ha de ser 1 (no pot ser 0 ni 2).
     2. sempre que mirem discharge-points : columna dcpState ha de ser 1 (no pot ser 0 ni 2).
     3. sempre que mirem aglomeracions:     columna aggState ha de ser 1 (no pot ser 0 ni 2).
-
   * accions a convertir a comandes SQL
     1. [FET] depuradores que no es troben a la taula de connexions (T-UWWTPAgglos):
     cal mirar la columna uwwState, i ignorar les que són 0 ò 2.
@@ -53,23 +53,20 @@
     si en queden pocs, es solucionarà manualment.
 
 --------------------------------------------------------------------------------
-# reunió oriol, lluís, lluís | 2/12/2019
+2. reunió oriol, lluís, lluís                                         02/12/2019
 --------------------------------------------------------------------------------
   * [fet] trobar aglomeracions IAS a (columna "aggRemarks"): paraules clau:
     - IAS
     - septic
-
   * [fet] millores web
 
 --------------------------------------------------------------------------------
-# reunió oriol, lluís | 12/12/2019
+3. reunió oriol, lluís                                                12/12/2019
 --------------------------------------------------------------------------------
   * [fet] millores web
 
   * Cas aglomeracions sense depuradora:
-
     1. [fet] crear nova taula de conexions entre "aglomeració" i "IAS".
-
       ```
       T_conn_agg_IAS:
       1 | id           | integer
