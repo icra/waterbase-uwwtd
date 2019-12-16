@@ -12,6 +12,7 @@
 <table border=1>
   <tr>
     <th>nº
+    <th>aggCode
     <th>aggName
     <th>agg Coords
     <th>uwwName
@@ -25,9 +26,10 @@
       $obj = (object)$row; //convert row to object
       $distance=distance($obj->aggLatitude, $obj->aggLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
       if($distance==false) continue;
-      if($distance<30) continue;
+      if($distance<30)     continue;
       echo "<tr>
         <td>$i
+        <td>$obj->aucAggCode
         <td>
           <a href='view.php?taula=T_Agglomerations&idNom=aggCode&idVal=$obj->aggCode' target=_blank>
             $obj->aggName
@@ -39,7 +41,7 @@
           <form method=POST action='update_coords.php'>
             <input type=hidden name=taula    value='T_Agglomerations'>
             <input type=hidden name=idNom    value='aggCode'>
-            <input type=hidden name=idVal    value='$obj->aggCode'>
+            <input type=hidden name=idVal    value='$obj->aucAggCode'>
             <input type=hidden name=lat_nom      value='aggLatitude'>
             <input             name=lat_nouValor value='$obj->aggLatitude' placeholder='aggLatitude'>
             <input type=hidden name=lon_nom      value='aggLongitude'>
