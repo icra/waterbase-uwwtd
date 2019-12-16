@@ -25,46 +25,42 @@
       if($distance<30) continue;
       echo "<tr>
         <td>$i
-        <td>$obj->uwwName
+        <td>
+          <a href='view.php?taula=T_UWWTPS&idNom=uwwCode&idVal=$obj->uwwCode' target=_blank>
+            $obj->uwwName
+          </a>
+        </td>
         <td>
           ".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
           <br>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_UWWTPS'>
-            <input type=hidden name=idNom    value='uwwCode'>
-            <input type=hidden name=idVal    value='$obj->uwwCode'>
-            <input type=hidden name=camp     value='uwwLatitude'>
-            <input name=nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
-            <button>guarda uwwLatitude</button>
-          </form>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_UWWTPS'>
-            <input type=hidden name=idNom    value='uwwCode'>
-            <input type=hidden name=idVal    value='$obj->uwwCode'>
-            <input type=hidden name=camp     value='uwwLongitude'>
-            <input name=nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
-            <button>guarda uwwLongitude</button>
+          <form method=POST action='update_coords.php'>
+            <input type=hidden name=taula        value='T_UWWTPS'>
+            <input type=hidden name=idNom        value='uwwCode'>
+            <input type=hidden name=idVal        value='$obj->uwwCode'>
+            <input type=hidden name=lat_nom      value='uwwLatitude'>
+            <input             name=lat_nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
+            <input type=hidden name=lon_nom      value='uwwLongitude'>
+            <input             name=lon_nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
+            <button>guarda coordenades</button>
           </form>
         </td>
-        <td>$obj->dcpName
+        <td>
+          <a href='view.php?taula=T_DischargePoints&idNom=dcpCode&idVal=$obj->dcpCode' target=_blank>
+            $obj->dcpName
+          </a>
+        </td>
         <td>
           ".google_maps_link($obj->dcpLatitude, $obj->dcpLongitude)."
           <br>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_DischargePoints'>
-            <input type=hidden name=idNom    value='dcpCode'>
-            <input type=hidden name=idVal    value='$obj->dcpCode'>
-            <input type=hidden name=camp     value='dcpLatitude'>
-            <input name=nouValor value='$obj->dcpLatitude' placeholder='dcpLatitude'>
-            <button>guarda dcpLatitude</button>
-          </form>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_DischargePoints'>
-            <input type=hidden name=idNom    value='dcpCode'>
-            <input type=hidden name=idVal    value='$obj->dcpCode'>
-            <input type=hidden name=camp     value='dcpLongitude'>
-            <input name=nouValor value='$obj->dcpLongitude' placeholder='dcpLongitude'>
-            <button>guarda dcpLongitude</button>
+          <form method=POST action='update_coords.php'>
+            <input type=hidden name=taula        value='T_DischargePoints'>
+            <input type=hidden name=idNom        value='dcpCode'>
+            <input type=hidden name=idVal        value='$obj->dcpCode'>
+            <input type=hidden name=lat_nom      value='dcpLatitude'>
+            <input             name=lat_nouValor value='$obj->dcpLatitude' placeholder='dcpLatitude'>
+            <input type=hidden name=lon_nom      value='dcpLongitude'>
+            <input             name=lon_nouValor value='$obj->dcpLongitude' placeholder='dcpLongitude'>
+            <button>guarda coordenades</button>
           </form>
         </td>
         <td>$distance

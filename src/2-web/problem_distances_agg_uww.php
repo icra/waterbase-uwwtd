@@ -28,46 +28,44 @@
       if($distance<30) continue;
       echo "<tr>
         <td>$i
-        <td>$obj->aggName
+        <td>
+          <a href='view.php?taula=T_Agglomerations&idNom=aggCode&idVal=$obj->aggCode' target=_blank>
+            $obj->aggName
+          </a>
+        </td>
         <td>
           ".google_maps_link($obj->aggLatitude, $obj->aggLongitude)."
           <br>
-          <form method=POST action='update.php'>
+          <form method=POST action='update_coords.php'>
             <input type=hidden name=taula    value='T_Agglomerations'>
             <input type=hidden name=idNom    value='aggCode'>
             <input type=hidden name=idVal    value='$obj->aggCode'>
-            <input type=hidden name=camp     value='aggLatitude'>
-            <input name=nouValor value='$obj->aggLatitude' placeholder='aggLatitude'>
-            <button>guarda aggLatitude</button>
-          </form>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_Agglomerations'>
-            <input type=hidden name=idNom    value='aggCode'>
-            <input type=hidden name=idVal    value='$obj->aggCode'>
-            <input type=hidden name=camp     value='aggLongitude'>
-            <input name=nouValor value='$obj->aggLongitude' placeholder='aggLongitude'>
-            <button>guarda aggLongitude</button>
+            <input type=hidden name=lat_nom      value='aggLatitude'>
+            <input             name=lat_nouValor value='$obj->aggLatitude' placeholder='aggLatitude'>
+            <input type=hidden name=lon_nom      value='aggLongitude'>
+            <input             name=lon_nouValor value='$obj->aggLongitude' placeholder='aggLongitude'>
+            <button>guarda coordenades</button>
           </form>
         </td>
-        <td>$obj->uwwName
+        <td>
+          <a href='view.php?taula=T_UWWTPS&idNom=uwwCode&idVal=$obj->uwwCode' target=_blank>
+            $obj->uwwName
+          </a>
+        </td>
+
         <td>
           ".google_maps_link($obj->uwwLatitude, $obj->uwwLongitude)."
           <br>
-          <form method=POST action='update.php'>
+
+          <form method=POST action='update_coords.php'>
             <input type=hidden name=taula    value='T_UWWTPS'>
             <input type=hidden name=idNom    value='uwwCode'>
             <input type=hidden name=idVal    value='$obj->uwwCode'>
-            <input type=hidden name=camp     value='uwwLatitude'>
-            <input name=nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
-            <button>guarda uwwLatitude</button>
-          </form>
-          <form method=POST action='update.php'>
-            <input type=hidden name=taula    value='T_UWWTPS'>
-            <input type=hidden name=idNom    value='uwwCode'>
-            <input type=hidden name=idVal    value='$obj->uwwCode'>
-            <input type=hidden name=camp     value='uwwLongitude'>
-            <input name=nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
-            <button>guarda uwwLongitude</button>
+            <input type=hidden name=lat_nom      value='uwwLatitude'>
+            <input             name=lat_nouValor value='$obj->uwwLatitude' placeholder='uwwLatitude'>
+            <input type=hidden name=lon_nom      value='uwwLongitude'>
+            <input             name=lon_nouValor value='$obj->uwwLongitude' placeholder='uwwLongitude'>
+            <button>guarda coordenades</button>
           </form>
         </td>
         <td>$distance

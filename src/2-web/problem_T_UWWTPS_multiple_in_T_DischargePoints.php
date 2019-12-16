@@ -26,7 +26,8 @@
   </tr>
   <?php
     $sql="SELECT * FROM $taula $where";
-    $res=$db->query("$sql LIMIT $limit");
+    //$res=$db->query("$sql LIMIT $limit"); //amb límit
+    $res=$db->query("$sql");                //sense límit
     $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
       $obj=(object)$row; //convert to object
       echo "<tr>
