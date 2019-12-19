@@ -12,6 +12,7 @@ CREATE TABLE `T_agg_IAS` (
   `aggName`			 varchar, 
   `rptMStateKey` varchar
 );
+
 INSERT INTO "T_agg_IAS" ("id","aggCode","aggName","rptMStateKey") VALUES ('1','ROAG_7776','Stremt','RO');
 INSERT INTO "T_agg_IAS" ("id","aggCode","aggName","rptMStateKey") VALUES ('2','ROAG_86829','Hunedoara','RO');
 INSERT INTO "T_agg_IAS" ("id","aggCode","aggName","rptMStateKey") VALUES ('3','ROAG_87433','Calan','RO');
