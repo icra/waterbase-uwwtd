@@ -9,8 +9,10 @@
 <table border=1>
   <tr>
     <th>nº
+    <th>uwwCode
     <th>uwwName
     <th>uww coords
+    <th>dcpCode
     <th>dcpName
     <th>dcp coords
     <th>distance (km)
@@ -25,6 +27,7 @@
       if($distance<30) continue;
       echo "<tr>
         <td>$i
+        <td>$obj->uwwCode
         <td>
           <a href='view.php?taula=T_UWWTPS&idNom=uwwCode&idVal=$obj->uwwCode' target=_blank>
             $obj->uwwName
@@ -44,6 +47,7 @@
             <button>guarda coordenades</button>
           </form>
         </td>
+        <td>$obj->dcpCode
         <td>
           <a href='view.php?taula=T_DischargePoints&idNom=dcpCode&idVal=$obj->dcpCode' target=_blank>
             $obj->dcpName
