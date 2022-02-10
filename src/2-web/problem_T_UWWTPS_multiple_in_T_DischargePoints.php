@@ -2,11 +2,16 @@
   //uwwtps with multiple discharge points
   $taula="T_UWWTPS";
   $idNom="uwwCode";
-  $where="WHERE uwwCode IN (
-    SELECT uwwCode FROM T_DischargePoints
-    WHERE dcpState=1
-    GROUP BY uwwCode HAVING COUNT(uwwCode)>1
-  )";
+  $where="
+    WHERE
+      uwwState=1 AND
+      uwwCode IN (
+        SELECT uwwCode
+        FROM T_DischargePoints
+        WHERE dcpState=1
+        GROUP BY uwwCode HAVING COUNT(uwwCode)>1
+      )
+  ";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems+=$n_pro;
 ?>

@@ -3,10 +3,11 @@
   $taula="T_DischargePoints";
   $idNom="dcpCode";
   $where="WHERE
-    dcpLongitude is 0    OR 
-    dcpLongitude is NULL OR 
-    dcpLatitude  is 0    OR 
-    dcpLatitude  is NULL";
+    dcpState=1 AND (
+    dcpLongitude is 0    OR
+    dcpLongitude is NULL OR
+    dcpLatitude  is 0    OR
+    dcpLatitude  is NULL)";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula $where");
   $total_problems += $n_pro;
 ?>

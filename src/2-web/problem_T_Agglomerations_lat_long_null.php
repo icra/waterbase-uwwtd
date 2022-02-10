@@ -2,10 +2,14 @@
   #agglomerations amb longitud o latitud NULL
   $taula="T_Agglomerations";
   $idNom="aggCode";//v7
-  $where="aggLongitude is 0    OR
-          aggLongitude is NULL OR
-          aggLatitude  is 0    OR
-          aggLatitude  is NULL";
+  $where="
+    aggState=1 AND (
+    aggLongitude is 0    OR
+    aggLongitude is NULL OR
+    aggLatitude  is 0    OR
+    aggLatitude  is NULL
+    )
+  ";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula WHERE $where");
   $total_problems+=$n_pro;
 ?>
@@ -21,9 +25,9 @@
   <tr>
     <th><?php echo $idNom?>
     <th>aggName
-    <th>rptMStateKey
     <th>aggLatitude
     <th>aggLongitude
+    <th>rptMStateKey
     <th>
       found coords in T_UWWTPS<br>
       <small>uww.aggCode==agg.aggCode</small>

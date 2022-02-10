@@ -2,14 +2,15 @@
   //wwpts with longitude or latitude NULL
   $taula="T_UWWTPS";
   $idNom="uwwCode";//v7
-  $where="uwwLongitude is 0    OR 
-          uwwLongitude is NULL OR 
-          uwwLatitude  is 0    OR 
-          uwwLatitude  is NULL";
+  $where="uwwState=1 AND
+    (uwwLongitude is 0    OR
+    uwwLongitude is NULL OR
+    uwwLatitude  is 0    OR
+    uwwLatitude  is NULL)";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula WHERE $where");
   $total_problems+=$n_pro;
 ?>
- 
+
 <details class=problem open>
 
 <summary>
