@@ -7,10 +7,12 @@
   $total_problems+=$n_pro;
 ?>
 
-<b>
-  connections with aucUwwCode not in T_UWWTPS:
+<details class=problem open>
+
+<summary>
+  Connections where aucUwwCode is not in T_UWWTPS:
   <span class=n_pro><?php echo $n_pro?></span>
-</b>
+</summary>
 
 <table border=1>
   <tr>
@@ -37,6 +39,12 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr><td colspan=100 class=sql>$sql";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
   ?>
 </table>
+
+</details>

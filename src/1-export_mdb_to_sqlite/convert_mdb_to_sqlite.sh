@@ -1,10 +1,11 @@
 #!/bin/bash
 
+#path of .mdb or .accdb file
+#example: mdb="Waterbase_UWWTD_v6_20171207.mdb";        #v6
+#example: mdb="Waterbase_UWWTD_v7_20190913021736.accdb" #v7
 mdb=$1;
-#mdb="Waterbase_UWWTD_v6_20171207.mdb";        #v6
-#mdb="Waterbase_UWWTD_v7_20190913021736.accdb" #v7
 
-#export the desired tables from the acces mdb file to a new sqlite file
+#desired tables from the acces mdb file
 tables=(
   "T_Agglomerations"
   "T_DischargePoints"
@@ -13,7 +14,7 @@ tables=(
   "T_UWWTPAgglos"
 );
 
-#export from mdb
+#export tables using mdb-tools
 for table in ${tables[@]}; do
   echo -n "Exporting $table from Access (mdb) to SQL..."
   mdb-schema --drop-table $mdb sqlite --table $table > $table.schema.sql; #table schema
@@ -34,7 +35,7 @@ for table in ${tables[@]}; do
   echo "Done"
 done
 
-#count rows for each table
+#count rows again for each table
 for table in ${tables[@]}; do
   sql="SELECT COUNT(*) FROM $table;"
   rows=$(echo "$sql" | sqlite3 $mdb.sqlite);

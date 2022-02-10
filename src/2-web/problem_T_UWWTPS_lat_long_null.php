@@ -9,11 +9,13 @@
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula WHERE $where");
   $total_problems+=$n_pro;
 ?>
+ 
+<details class=problem open>
 
-<b>
-  uwwtps with latitude or longitude NULL:
+<summary>
+  Uwwtps where latitude or longitude is NULL:
   <span class=n_pro><?php echo $n_pro?></span>
-</b>
+</summary>
 
 <table border=1>
   <tr>
@@ -79,6 +81,12 @@
     }
 
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr><td colspan=100 class=sql>$sql";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
   ?>
 </table>
+
+</details>

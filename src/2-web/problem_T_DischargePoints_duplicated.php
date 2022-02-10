@@ -7,10 +7,12 @@
   $total_problems += $n_pro;
 ?>
 
-<b>
-  duplicated discharge points:
-  <span class=n_pro><?php echo $n_pro?></span>
-</b>
+<details class=problem open>
+
+<summary>
+  Duplicated discharge points:
+  <span class=n_pro><?php echo (is_null($n_pro)?"0":$n_pro) ?></span>
+</summary>
 
 <table border=1>
   <tr>
@@ -44,6 +46,12 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr><td colspan=100 class=sql>$sql";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
   ?>
 </table>
+
+</details>

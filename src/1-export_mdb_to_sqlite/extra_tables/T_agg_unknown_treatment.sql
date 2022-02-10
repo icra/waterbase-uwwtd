@@ -1,16 +1,18 @@
 /*
  * Agglomerations with unknown treatment
  * created from:
- *   SELECT aggCode,aggName,rptMStateKey FROM T_Agglomerations
- *   WHERE aggState=1 AND aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos) AND ( aggRemarks IS NULL OR ( aggRemarks NOT LIKE '%IAS%' AND aggRemarks NOT LIKE '%septic%' ) )
+ *   SELECT aggCode,aggName,rptMStateKey FROM T_Agglomerations WHERE aggState=1
+ *   AND aggCode NOT IN (SELECT aucAggCode FROM T_UWWTPAgglos) AND ( aggRemarks
+ *   IS NULL OR ( aggRemarks NOT LIKE '%IAS%' AND aggRemarks NOT LIKE
+ *   '%septic%' ) )
  *
 */
 
 DROP TABLE IF EXISTS "T_agg_unknown_treatment";
 CREATE TABLE `T_agg_unknown_treatment` (
-  `id`			     INTEGER PRIMARY KEY AUTOINCREMENT, 
-  `aggCode`			 varchar, 
-  `aggName`			 varchar, 
+  `id`			     INTEGER PRIMARY KEY AUTOINCREMENT,
+  `aggCode`			 varchar,
+  `aggName`			 varchar,
   `rptMStateKey` varchar
 );
 

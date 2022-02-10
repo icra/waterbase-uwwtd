@@ -47,7 +47,7 @@
 $password = 'admin';
 
 //directory relative to this file to search for databases (if false, manually list databases in the $databases variable)
-$directory = '../1-export_mdb_to_sqlite/';
+$directory='../1-export_mdb_to_sqlite/db_versions';
 
 //whether or not to scan the subdirectories of the above directory infinitely deep
 $subdirectories = false;

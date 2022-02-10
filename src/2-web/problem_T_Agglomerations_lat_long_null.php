@@ -1,19 +1,21 @@
-<?php 
+<?php
   #agglomerations amb longitud o latitud NULL
   $taula="T_Agglomerations";
   $idNom="aggCode";//v7
-  $where="aggLongitude is 0    OR 
-          aggLongitude is NULL OR 
-          aggLatitude  is 0    OR 
+  $where="aggLongitude is 0    OR
+          aggLongitude is NULL OR
+          aggLatitude  is 0    OR
           aggLatitude  is NULL";
   $n_pro=$db->querySingle("SELECT COUNT(*) FROM $taula WHERE $where");
   $total_problems+=$n_pro;
 ?>
 
-<b>
-  agglomerations with latitude or longitude NULL:
+<details class=problem open>
+
+<summary>
+  Agglomerations where latitude or longitude is NULL:
   <span class=n_pro><?php echo $n_pro?></span>
-</b>
+</summary>
 
 <table border=1>
   <tr>
@@ -23,9 +25,8 @@
     <th>aggLatitude
     <th>aggLongitude
     <th>
-      found coords in T_UWWTPS
-      <br>
-      <small>where uww.aggCode==agg.aggCode</small>
+      found coords in T_UWWTPS<br>
+      <small>uww.aggCode==agg.aggCode</small>
     </th>
   </tr>
   <?php
@@ -75,6 +76,12 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr><td colspan=100 class=sql>$sql";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
   ?>
 </table>
+
+</details>

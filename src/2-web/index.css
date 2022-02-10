@@ -1,14 +1,25 @@
-main{
-  display:grid;
-  grid-template-columns:30% 70%;
+/*new*/
+summary{
+  cursor:pointer;
 }
-div#index {
-  position:sticky;
-  top:0;
+summary:hover{
+  text-decoration:underline;
 }
-div#index_container{
-  background:azure;
+details.table > div {
+  padding-left:20px;
+  padding-bottom:10px;
 }
+details.table > summary{
+  font-size:larger;
+  font-weight:bold;
+}
+details.problem > table{
+  margin-bottom:10px;
+}
+details.problem{
+  margin-bottom:1px;
+}
+/*old*/
 hr{
   border:none;
   border-bottom:1px solid #ccc;
@@ -22,27 +33,22 @@ table{
 th{
   background:#eee;
 }
-.problem{
-  margin-bottom:10px;
-}
 .flex{
   display:flex;
   flex-wrap:wrap;
 }
 span.n_pro{
   background:red;
-  display:inline-block;
-  width:50px;
   text-align:center;
+  font-weight:normal;
+  width:50px;
+  display:inline-block;
   border-radius:3px;
   color:white;
 }
-h2, ul#problems h3{
-  background:black;
-  color:white;
-}
-ul#problems h3 a, ul#problems h3 a:visited{
-  color:white;
+span.n_pro.zero{
+  background:#af0;
+  color:black;
 }
 td.sql {
   background:azure;
@@ -61,16 +67,6 @@ td.blank:before {
 div.problem_link:hover{
   cursor:pointer;
   text-decoration:underline;
-}
-
-div#total_problems{
-  background:#eee;
-  position:fixed;
-  top:0;
-  right:0;
-  font-size:larger;
-  box-shadow:-2px 2px 2px #bbb;
-  padding:0.2em;
 }
 
 /* quickly fold / unfold sections */

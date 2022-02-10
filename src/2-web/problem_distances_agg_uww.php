@@ -1,13 +1,19 @@
 <?php
   #distance agg-uww > 30 km
   $taula="T_Agglomerations AS agg, T_UWWTPS AS uww, T_UWWTPAgglos AS auc";
-  $where="WHERE 
+  $where="WHERE
     auc.aucAggCode = agg.aggCode AND
     auc.aucUwwCode = uww.uwwCode
   ";
+  $n_pro=0;
 ?>
 
-<b>distance agglomeration &rarr; uwwtp &gt; 30km</b>
+<details class=problem open>
+
+<summary>
+  Distance agglomeration &rarr; uwwtp &gt; 30km:
+  <span class=n_pro id=problem_distances_agg_uww>0</span>
+</summary>
 
 <table border=1>
   <tr>
@@ -27,6 +33,7 @@
       $distance=distance($obj->aggLatitude, $obj->aggLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
       if($distance==false) continue;
       if($distance<30)     continue;
+      $n_pro++;
       echo "<tr>
         <td>$i
         <td>$obj->aucAggCode
@@ -76,6 +83,17 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr><td colspan=100 class=sql>$sql";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
+    $total_problems += $n_pro;
   ?>
 </table>
+
+<script>
+  document.querySelector("span#problem_distances_agg_uww").innerHTML="<?php echo $n_pro?>";
+</script>
+
+</details>
