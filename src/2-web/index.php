@@ -73,23 +73,7 @@
   </div>
 
   <!--curent db version-->
-  <form action="setcookie_db_version.php" method="get">
-    <b>Current db version: <?php echo $db_version?></b> |
-    <span>
-      Select db version
-      <select name="db_version">
-        <?php
-          foreach($db_versions as $version){
-            $selected = $db_version==$version?"selected":"";
-            echo"
-              <option value='$version' $selected>$version</option>
-            ";
-          }
-        ?>
-      </select>
-      <button>go</button>
-    </span>
-  </form>
+  <?php include'select_db_version.php'?>
 
   <!--total problems-->
   <div id=total_problems>
@@ -100,6 +84,8 @@
 
 <!--problems-->
 <div>
+  <p>Problems checked:</p>
+
   <!--problem tables-->
   <div id='Table_T_Agglomerations'>
     <details class=table open>

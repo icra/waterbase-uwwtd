@@ -91,7 +91,8 @@
 </head><body>
 <h1><a href="index.php">Home</a> / Predefined queries (for INVEST project)</h1>
 
-<div>Selected db version: <?php echo $db_version?></div>
+<!--curent db version-->
+<?php include'select_db_version.php'?>
 
 <ul>
   <?php
