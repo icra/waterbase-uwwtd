@@ -49,8 +49,29 @@
 <!--title-->
 <div>
   <h2>Waterbase UWWTD: problem finder platform (READONLY)</h2>
+
   <!--loading indication-->
   <?php include'loading.php'?>
+
+  <!--database file status (readable and writable)-->
+  <div>
+    <?php
+      if(!is_readable($db_file_path)){
+        echo "<div><span style=background:red;color:white>
+          Attention: The database-file is not readable, so its content cannot be read to find problems.
+        </span></div>";
+      }
+      if(!is_writable($db_file_path)){
+        echo "
+          <p>
+            Note: The database-file is not writable, so its content cannot be
+            changed in any way.
+          </p>
+        ";
+      }
+    ?>
+  </div>
+
   <!--curent db version-->
   <form action="setcookie_db_version.php" method="get">
     <b>Current db version: <?php echo $db_version?></b> |
@@ -69,6 +90,7 @@
       <button>go</button>
     </span>
   </form>
+
   <!--total problems-->
   <div id=total_problems>
     Total problems found:
@@ -78,20 +100,6 @@
 
 <!--problems-->
 <div>
-  <!--database file status (readable and writable)-->
-  <?php
-    if(!is_readable($db_file_path)){
-      echo "<li><span style=background:red;color:white>
-        Attention: The database-file is not readable, so its content cannot be read to find problems.
-      </span></li>";
-    }
-    if(!is_writable($db_file_path)){
-      echo "<li><span style=background:red;color:white>
-        Attention: The database-file is not writable, so its content cannot be changed in any way.
-      </span></li>";
-    }
-  ?>
-
   <!--problem tables-->
   <div id='Table_T_Agglomerations'>
     <details class=table open>
