@@ -16,6 +16,14 @@
 </summary>
 
 <table border=1>
+  <?php
+    $sql="SELECT * FROM $taula $where";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
+  ?>
   <tr>
     <th>nº
     <th>aggCode
@@ -26,13 +34,11 @@
     <th>distance (km)
   </tr>
   <?php
-    $sql="SELECT * FROM $taula $where";
     $res=$db->query($sql);
     $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
       $obj = (object)$row; //convert row to object
       $distance=distance($obj->aggLatitude, $obj->aggLongitude, $obj->uwwLatitude, $obj->uwwLongitude);
-      if($distance==false) continue;
-      if($distance<30)     continue;
+      if($distance==false || $distance<30) continue;
       $n_pro++;
       echo "<tr>
         <td>$i
@@ -83,11 +89,6 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr>
-      <td colspan=100 class=sql>
-        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
-      </td>
-    </tr>";
     $total_problems += $n_pro;
   ?>
 </table>

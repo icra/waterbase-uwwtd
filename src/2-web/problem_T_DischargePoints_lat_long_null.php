@@ -20,6 +20,14 @@
 </summary>
 
 <table border=1>
+  <?php
+    $sql="SELECT * FROM $taula $where";
+    echo "<tr>
+      <td colspan=100 class=sql>
+        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
+      </td>
+    </tr>";
+  ?>
   <tr>
     <th><?php echo $idNom?>
     <th>dcpName
@@ -29,7 +37,6 @@
     <th>found coords in T_UWWTPS <br><small>where dcp.uwwCode==uww.uwwCode</small>
   </tr>
   <?php
-    $sql="SELECT * FROM $taula $where";
     $res=$db->query("$sql LIMIT $limit");
     $i=1;while($row=$res->fetchArray(SQLITE3_ASSOC)){
       $obj=(object)$row; //convert to object
@@ -79,11 +86,6 @@
       $i++;
     }
     if($i==1){echo "<tr><td colspan=100 class=blank>";}
-    echo "<tr>
-      <td colspan=100 class=sql>
-        <a href='problem.php?sql=$sql' target=_blank>$sql</a>
-      </td>
-    </tr>";
   ?>
 </table>
 
