@@ -1,11 +1,11 @@
 <?php
 
 /*db version sqlite file paths*/
-$db_versions=array("v7","v7 OC","v8");
+$db_versions=array("v7","v7 OC","v8","v9");
 
 //default version if no cookie set
-$db_version="v8";
-$db_file_path='../1-export_mdb_to_sqlite/db_versions/v8.accdb.sqlite'; //v8
+$db_version="v9";
+$db_file_path='../1-export_mdb_to_sqlite/db_versions/v9.accdb.sqlite';
 
 //load
 if(isset($_COOKIE["db_version"])){
@@ -21,6 +21,10 @@ if(isset($_COOKIE["db_version"])){
     case "v8":
       $db_version="v8";
       $db_file_path='../1-export_mdb_to_sqlite/db_versions/v8.accdb.sqlite'; //v8
+      break;
+    case "v9":
+      $db_version="v9";
+      $db_file_path='../1-export_mdb_to_sqlite/db_versions/v9.accdb.sqlite'; //v9
       break;
     default: break;
   }
