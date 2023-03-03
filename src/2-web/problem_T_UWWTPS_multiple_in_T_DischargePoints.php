@@ -62,6 +62,7 @@
         echo "<div>
           <a href='view.php?taula=T_DischargePoints&idNom=dcpDischargePointsID&idVal=$objj->dcpDischargePointsID' target=_blank>$objj->dcpName</a>
           (".google_maps_link($objj->dcpLatitude,$objj->dcpLongitude).")
+          [".round(distance($obj->uwwLatitude,$obj->uwwLongitude,$objj->dcpLatitude,$objj->dcpLongitude),2)." km]
           <br>
           remark: $remark
           <br>

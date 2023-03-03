@@ -110,6 +110,7 @@
         <?php include'problem_T_UWWTPS_not_in_T_UWWTPAgglos.php'?>
         <?php include'problem_T_UWWTPS_not_in_T_DischargePoints.php'?>
         <?php include'problem_T_UWWTPS_multiple_in_T_DischargePoints.php'?>
+        <?php include'problem_T_UWWTPS_uwwPrimary_uwwSecondary_null.php'?>
       </div>
     </details>
   </div>
